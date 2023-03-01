@@ -1,0 +1,96 @@
+// .derecha {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: first center;
+
+//     @include tablet {
+//         align-items: flex-end;
+//     }
+
+//     .dark-mode-boton {
+//         width: 3rem;
+//         margin-top: 3rem;
+//         margin-bottom: 2rem;
+//         // Filter permite crear efectos invierte el color aplicado
+//         filter: invert(100%);
+
+//         &:hover {
+//             cursor: pointer;
+//         }
+
+//         @include tablet {
+//             margin-top: 0;
+//         }
+//     }
+// }
+
+.barra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}
+
+.navegacion {
+
+    // Que no se vea
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    // animacion
+    transition: visibility .3s ease-in-out, opacity .5s linear, height .5s linear; 
+
+    @include tablet {
+        display: flex;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    a {
+        color: $blanco;
+        text-decoration: none;
+        font-size: 2.2rem;
+        display: block;
+        text-align: center;
+
+        @include tablet {
+            margin-right: 2rem;
+            font-size: 1.8rem;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+
+        &:hover {
+            color: $verde;
+        }
+    }
+}
+
+
+/** Menu de hamburguesa **/
+.mobile-menu {
+    // Le dice que cuando llegue a un tamano no se vea el elemento 
+    // en este caso el menu de hamburguesa
+    @include tablet {
+        display: none;
+    }
+
+    img {
+        width: 5rem;
+    }
+}
+
+.mostrar {
+    // Que se vea
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+}

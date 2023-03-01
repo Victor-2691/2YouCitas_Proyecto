@@ -1,0 +1,26 @@
+.footer {
+    background-color: $negro;
+    .contenedor-footer {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+        align-items: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .copyright {
+        color: $blanco;
+        text-align: center;
+    }
+
+    img {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    p {
+        font-weight: $bold;
+        font-size: 2rem;
+    }
+}
