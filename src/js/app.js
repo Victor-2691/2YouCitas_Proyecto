@@ -1,9 +1,11 @@
 // Escucha cuando el documento este cargado todo HMTL CSS
-document.addEventListener('DOMContentLoaded', function() {
 
+document.addEventListener('DOMContentLoaded', function() {
+  
     eventListeners();
 
     darkMode();
+  
 });
 
 function darkMode() {

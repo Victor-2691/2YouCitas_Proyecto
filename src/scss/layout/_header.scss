@@ -1,36 +1,36 @@
-// .no-webp .inicio {
-//     background-image: url(../img/header.jpg);
-// }
-// .webp .inicio {
-//     background-image: url(../img/header.webp);
-// }
+// // .no-webp .inicio {
+// //     background-image: url(../img/header.jpg);
+// // }
+// // .webp .inicio {
+// //     background-image: url(../img/header.webp);
+// // }
 
 // .header {
-//     background-color: $grisOscuro;
+//     background-color: $negro;
 //     padding: 1rem 0 3rem 0;
 
 //     .barra {
 //         a {
 //             img {
-//                 min-width: 20rem;
+//                width: 20rem;
 //             }
 //         }
 //     }
 
-//     &.inicio {
-//         background-position: center center;
-//         background-size: cover;
+//     // &.inicio {
+//     //     background-position: center center;
+//     //     background-size: cover;
 
-//         @include tablet {
-//             min-height: 70rem;
-//         }
+//     //     @include tablet {
+//     //         min-height: 70rem;
+//     //     }
 
-//         .contenido-header {
-//             @include tablet {
-//                 min-height: 70rem;
-//             }
-//         }
-//     }
+//     //     .contenido-header {
+//     //         @include tablet {
+//     //             min-height: 70rem;
+//     //         }
+//     //     }
+//     // }
 // }
 
 // .contenido-header {
@@ -46,3 +46,51 @@
 //         max-width: 60rem;
 //     }
 // }
+
+
+
+.header {
+    background-color: $negro;
+    padding: 1rem 0 3rem 0;
+
+    .barra {
+        a {
+            font-weight: $bold;
+            img {
+                width: 15rem;
+                height: 5rem;
+            
+            }
+        }
+    }
+
+    &.inicio {
+        background-position: center center;
+        background-size: cover;
+
+        @include tablet {
+            min-height: 70rem;
+        }
+
+        .contenido-header {
+            @include tablet {
+                min-height: 70rem;
+            }
+        }
+    }
+}
+
+
+.contenido-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h1 {
+        text-align: left;
+        color: $blanco;
+        font-weight: $bold;
+        line-height: 2;
+        max-width: 60rem;
+    }
+}
