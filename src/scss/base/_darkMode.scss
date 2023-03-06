@@ -50,5 +50,25 @@
         display: inline-block;
     }
 
-  
+  .perfil{
+    background-color: darken($grisalternativo, 10);
+    h1,h2{
+       color: $principal;
+
+    }
+  }
+
+  .boton-negro {
+    @include boton($principal, inline-block);
+    text-transform: uppercase;
+
+    &:hover {
+        color: $negro;
+         
+    }
+
+    border-radius: 1rem;
+}
+
+
 }

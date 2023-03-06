@@ -13,19 +13,14 @@ incluirTempleate('header_externo');
 </section>
 
 <section class="s123">
-
-   <h2 class="animate__animated animate__bounceInLeft ">¿Cómo Funciona?</h2>
+    <h2 class="animate__animated animate__bounceInLeft ">¿Cómo Funciona?</h2>
     <h3 class="animate__animated animate__bounceInRight ">Sigue los pasos</h3>
-
- 
-   
     <div class="s123_contenedor">
-
         <div class="s123_contenido">
             <div id="centrar_cuadro">
-            <div class="s123_cuadro">
+                <div class="s123_cuadro">
                     <p class="num_cuadro">1</p>
-                    </div>
+                </div>
                 <h3 id="h3">Crear Perfil</h3>
                 <p id="p">Elige tus intereses y preferencias, para conectarte con las personas indicadas para ti y actualiza tu ubicación en cualquier momento</p>
 
@@ -50,10 +45,27 @@ incluirTempleate('header_externo');
             </div>
 
         </div>
+    </div>
+</section>
 
+<section class="perfil">
 
+    <div class="perfil-contenedor">
+        <div class="perfil-contenido">
+            <p>Modifica tu descripción, intereses y preferencias</p>
+        </div>
 
+        <div class="perfil-imagen">
+        <h1>Visualiza tu perfil</h1>
+            <img src="build/img/ejemploperfil.jpg" alt="imagen-perfil">
+        </div>
 
+        <div class="perfil-ejemplo">
+            <h2>Ana Linares Prada</h2>
+            <p>Hola, me encanta conocer lugares nuevos y la fotografia</p>
+            <button class="boton-negro" type="button"> Ver Perfil</button>
+            
+        </div>
 
     </div>
 
