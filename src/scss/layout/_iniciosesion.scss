@@ -1,42 +1,42 @@
-//reset
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+// reset
+// *{
+//     padding: 0;
+//     margin: 0;
+//     box-sizing: border-box;
+// }
 
-//Main Styling
-body,
-html{
-    font-family: $principal;
-}
+// //Main Styling
+// body,
+// html{
+//     font-family: $principal;
+// }
 
-h2{
-    font-size: 2rem;
-    text-transform: uppercase;
-}
+// h2{
+//     font-size: 2rem;
+//     text-transform: uppercase;
+// }
 
-h3{
-    font-size: 1.5rem;
-}
+// h3{
+//     font-size: 1.5rem;
+// }
 
-h1,
-h3{
-    font-weight: 600;
-}
+// h1,
+// h3{
+//     font-weight: 600;
+// }
 
-h1,
-h2,
-h3,
-p{
-    margin-bottom: 1rem;
-}
+// h1,
+// h2,
+// h3,
+// p{
+//     margin-bottom: 1rem;
+// }
 
-a,
-a:visited{
-    text-decoration: none;
-    color: $blanco;
-}
+// a,
+// a:visited{
+//     text-decoration: none;
+//     color: $blanco;
+// }
 
 //Utility Classes
 .container{

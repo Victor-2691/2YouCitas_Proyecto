@@ -56,7 +56,7 @@ incluirTempleate('header_externo');
         </div>
 
         <div class="perfil-imagen">
-        <h1>Visualiza tu perfil</h1>
+            <h1>Visualiza tu perfil</h1>
             <img src="build/img/ejemploperfil.jpg" alt="imagen-perfil">
         </div>
 
@@ -64,12 +64,27 @@ incluirTempleate('header_externo');
             <h2>Ana Linares Prada</h2>
             <p>Hola, me encanta conocer lugares nuevos y la fotografia</p>
             <button class="boton-negro" type="button"> Ver Perfil</button>
-            
+
         </div>
 
     </div>
+</section>
 
-
+<section class="suspiro">
+<div class="row">
+  <div class="col-sm-6">
+ 
+    <!-- normal -->
+    <div class="ih-item circle effect2 left_to_right"><a href="#">
+        <div class="img"><img src="build/img/ejemploperfil.jpg" alt="img"></div>
+        <div class="info">
+          <h3>Heading here</h3>
+          <p>Description goes here</p>
+        </div></a></div>
+    <!-- end normal -->
+ 
+  </div>
+  <div class="col-sm-6">
 </section>
 
 
