@@ -7,7 +7,6 @@
     <title>2 YouCitas</title>
     <link rel="stylesheet" href="build/css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link href="styles/ihover.css" rel="stylesheet">
 </head>
 
 <body>
@@ -18,7 +17,7 @@ So es true mostramos el header inicio que tiene la imagen -->
             <div class="barra">
                 <a class="animate__animated animate__rubberBand" href="/Proyectos/
                 bienesRaicesPHP_inicio/index.php">
-                    <img src="build/img/logo2youcitas150.svg" alt="Logotipo 2YouCitas">
+                    <img src="build/img/logo2youcitas150final.svg" alt="Logotipo 2YouCitas">
                 </a>
                 <div class="mobile-menu">
                     <img src="build/img/barras.svg" alt="icono menu responsive">

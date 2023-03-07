@@ -13,8 +13,8 @@ incluirTempleate('header_externo');
 </section>
 
 <section class="s123">
-    <h2 class="animate__animated animate__bounceInLeft ">¿Cómo Funciona?</h2>
-    <h3 class="animate__animated animate__bounceInRight ">Sigue los pasos</h3>
+    <h2 class="">¿Cómo Funciona?</h2>
+    <h3 class="">Sigue los pasos</h3>
     <div class="s123_contenedor">
         <div class="s123_contenido">
             <div id="centrar_cuadro">
@@ -71,20 +71,50 @@ incluirTempleate('header_externo');
 </section>
 
 <section class="suspiro">
-<div class="row">
-  <div class="col-sm-6">
- 
-    <!-- normal -->
-    <div class="ih-item circle effect2 left_to_right"><a href="#">
-        <div class="img"><img src="build/img/ejemploperfil.jpg" alt="img"></div>
-        <div class="info">
-          <h3>Heading here</h3>
-          <p>Description goes here</p>
-        </div></a></div>
-    <!-- end normal -->
- 
-  </div>
-  <div class="col-sm-6">
+    <h1>Características Únicas</h1>
+    <p>Descrube que nos hace diferentes </p>
+    <div class="suspiro_contenidos">
+        <!-- normal -->
+        <div class=" suspiro_contenido ih-item circle effect2 top_to_bottom">
+            <a href="#">
+                <div class="img"><img src="build/img/MODO-OSCURO.png" alt="img"></div>
+                <div class="info">
+                    <h3>Modo Oscuro</h3>
+                   
+                </div>
+            </a>
+        </div>
+        <!-- end normal -->
+
+        <!-- normal -->
+        <div class=" suspiro_contenido ih-item circle effect2  bottom_to_top">
+            <a href="#">
+                <div class="img"><img src="build/img/LogoSuspiro.svg" alt="img"></div>
+                <div class="info">
+                    <h3>Suspiros Ilimitados</h3>
+               
+                </div>
+            </a>
+        </div>
+        <!-- end normal -->
+
+        <!-- normal -->
+        <div class=" suspiro_contenido ih-item circle effect2 right_to_left">
+            <a href="#">
+                <div class="img"><img src="build/img/hourglass-time-passing-pass-away-260nw-1037936920.webp" alt="img"></div>
+                <div class="info">
+                    <h3>Mensajes temporales</h3>
+                </div>
+            </a>
+        </div>
+        <!-- end normal -->
+
+
+
+    </div>
+
+
+
 </section>
 
 
