@@ -27,7 +27,7 @@ So es true mostramos el header inicio que tiene la imagen -->
                     <img class="dark-mode-boton" src="build/img/dark-mode.svg">
                     <nav class="navegacion">
                         <a href="nosotros.php">Inicio</a>
-                        <a href="anuncios.php">Iniciar Sesión</a>
+                        <a href="inicio_sesion.php">Iniciar Sesión</a>
                         <a href="contacto.php">Registrarse</a>
                        
                     </nav>
