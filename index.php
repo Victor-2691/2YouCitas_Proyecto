@@ -76,7 +76,7 @@ incluirTempleate('header_externo');
     <div class="suspiro_contenidos">
         <!-- normal -->
         <div class=" suspiro_contenido ih-item circle effect2 top_to_bottom">
-            <a href="#">
+            <a id="preventD" href="#">
                 <div class="img"><img src="build/img/MODO-OSCURO.png" alt="img"></div>
                 <div class="info">
                     <h3>Modo Oscuro</h3>
@@ -88,7 +88,7 @@ incluirTempleate('header_externo');
 
         <!-- normal -->
         <div class=" suspiro_contenido ih-item circle effect2  bottom_to_top">
-            <a href="#">
+            <a id="preventD" href="#">
                 <div class="img"><img src="build/img/LogoSuspiro.svg" alt="img"></div>
                 <div class="info">
                     <h3>Suspiros Ilimitados</h3>
@@ -100,7 +100,7 @@ incluirTempleate('header_externo');
 
         <!-- normal -->
         <div class=" suspiro_contenido ih-item circle effect2 right_to_left">
-            <a href="#">
+            <a id="preventD" href="#">
                 <div class="img"><img src="build/img/hourglass-time-passing-pass-away-260nw-1037936920.webp" alt="img"></div>
                 <div class="info">
                     <h3>Mensajes temporales</h3>
