@@ -105,7 +105,7 @@ incluirTempleate('header_externo');
         <!-- end normal -->
 
         <!-- normal -->
-        <div class=" suspiro_contenido ih-item circle effect2 right_to_left">
+        <div class=" suspiro_contenido ih-item circle effect2 top_to_bottom">
             <a id="preventD" href="#">
                 <div class="img"><img src="build/img/hourglass-time-passing-pass-away-260nw-1037936920.webp" alt="img"></div>
                 <div class="info">

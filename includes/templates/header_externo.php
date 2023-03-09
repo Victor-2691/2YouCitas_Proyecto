@@ -13,7 +13,7 @@
     <!-- Para solo mostrar el header en la pagina de inicio
 So es true mostramos el header inicio que tiene la imagen -->
     <header class="header">
-        <div class="contenedor contenido-header">
+        <div class="contenido-header">
             <div class="barra">
                 <a class="animate__animated animate__rubberBand" href="/Proyectos/
                 bienesRaicesPHP_inicio/index.php">
