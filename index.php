@@ -5,10 +5,6 @@ incluirTempleate('header_externo');
 
 ?>
 
-<main class="contenedor">
-
-
-
 <section class="hero">
     <div class="contenido-hero">
         <h2 class="animate__animated animate__fadeInDown">Citas en Línea</h2>
@@ -16,6 +12,8 @@ incluirTempleate('header_externo');
     </div>
     <!--.Contenido-Hero Cierre-->
 </section>
+
+<main class="contenedor">
 
 <section class="s123">
     <h2 class="">¿Cómo Funciona?</h2>
@@ -53,8 +51,9 @@ incluirTempleate('header_externo');
     </div>
 </section>
 
-<section class="perfil">
 
+<div class="conteiner">
+<section class="perfil">
     <div class="perfil-contenedor">
         <div class="perfil-contenido">
             <p>Modifica tu descripción, intereses y preferencias</p>
@@ -71,9 +70,11 @@ incluirTempleate('header_externo');
             <button class="boton-negro" type="button"> Ver Perfil</button>
 
         </div>
-
     </div>
 </section>
+</div>
+
+
 
 <section class="suspiro">
     <h1>Características Únicas</h1>
