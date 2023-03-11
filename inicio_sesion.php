@@ -23,7 +23,7 @@
                         <label for="password">Contraseña</label>
                         <input type="password">
                         <p class="small txt-gray"><a href="#"><span class="txt-primary">Olvide mi Contraseña</span></a></p>
-                        <button class="btn">Iniciar Sesion</button>
+                        <button class="btn" type="button" onclick="location.href='descubrir.php'">Iniciar Sesion</button>
                     </form>
                     <p class="small">
                         Registrarse <a href="#"><span class="txt-primary">Aqui</span></a>
