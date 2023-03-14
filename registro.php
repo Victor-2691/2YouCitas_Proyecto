@@ -1,5 +1,24 @@
 <?php
 
+// Conexion a base de datos
+require 'includes/config/database.php';
+$db = conectarBD();
+
+
+echo "<pre>";
+var_dump($_SERVER);
+echo "</pre>";
+
+echo "<pre>";
+var_dump($_SESSION);
+echo "</pre>";
+
+echo "<pre>";
+var_dump($_POST);
+echo "</pre>";
+
+
+
 require 'includes/funciones.php';
 incluirTempleate('header_externo');
 
@@ -11,29 +30,29 @@ incluirTempleate('header_externo');
 
     <!-- <h2>Necesitamos saber un poco más de ti</h2> -->
 
-    <form class="formulario">
+    <form class="formulario" method="POST" action="registro.php">
         <fieldset class="fielsombra">
             <legend>Datos Generales</legend>
 
             <label for="nombre">Nombre</label>
-            <input type="text" placeholder="Tu Nombre" id="nombre" required>
+            <input name="nombre" type="text" placeholder="Tu Nombre" id="nombre" >
 
             <label for="apellido1">Primer Apellido</label>
-            <input type="text" placeholder="Primer Apellido" id="apellido1"  required>
+            <input name="primer_apellido" type="text" placeholder="Primer Apellido" id="apellido1"  >
 
             <label for="apellido2">Segundo Apellido</label>
-            <input type="text" placeholder="Segundo Apellido" id="apellido2"  required>
+            <input name="segundo_apellido" type="text" placeholder="Segundo Apellido" id="apellido2"  >
 
             <label for="telefono">Número de télefono</label>
-            <input type="number" placeholder="Número de télefono" id="telefono" min="1"   required>
+            <input name="telefono" type="number" placeholder="Número de télefono" id="telefono" min="1"   >
 
 
             <label for="fecha">Fecha de nacimiento</label>
-            <input type="date" id="fechaNacimiento"  required>
+            <input name="fecha_nacimiento" type="date" id="fechaNacimiento"  >
             <p>Edad visible en tu perfil</p>
             <div class="forma-contacto">
                 <div class="toggle">
-                    <input id="medad" type="checkbox"  required>
+                    <input id="medad" type="checkbox" >
                     <label for="medad" class="onbtn">Si</label>
                     <label for="medad" class="ofbtn">No</label>
                 </div>
@@ -53,19 +72,19 @@ incluirTempleate('header_externo');
            <label>Genero</label>
             <div class="forma-contacto">
                 <label class="label_opciones" for="Masculino">Masculino</label>
-                <input name="genero" type="radio" value="Masculino" id="Masculino">
+                <input name="genero_pertenece" type="radio" value="Masculino" id="Masculino">
 
                 <label class="label_opciones" for="Femenino">Femenino</label>
-                <input name="genero" type="radio" value="Femenino" id="Femenino">
+                <input name="genero_pertenece" type="radio" value="Femenino" id="Femenino">
 
                 <label class="label_opciones" for="nobinario">No Binario</label>
-                <input name="genero" type="radio" value="No Binario" id="nobinario">
+                <input name="genero_pertenece" type="radio" value="No Binario" id="nobinario">
             </div>
             <p> Genero visible en tu perfil
             <p>
             <div class="forma-contacto">
                 <div class="toggle">
-                    <input id="mgenero" type="checkbox">
+                    <input name="mostrar_genero" id="mgenero" type="checkbox">
                     <label for="mgenero" class="onbtn">Si</label>
                     <label for="mgenero" class="ofbtn">No</label>
                 </div>
@@ -97,7 +116,7 @@ incluirTempleate('header_externo');
             </select>
 
             <label for="signo">Signo Zodical:</label>
-            <select  id="signo">
+            <select name="signozodiaco"  id="signo">
                 <option value="" disabled selected>-- Seleccione --</option>
                 <option value="Aries">Aries</option>
                 <option value="Tauro">Tauro</option>
@@ -121,19 +140,19 @@ incluirTempleate('header_externo');
             <p>Puedes elegir más de una opción y cambiarla en cualquier momento</p>
             <div class="forma-contacto">
                 <label class="label_opciones" for="Masculino">Masculino</label>
-                <input class="checkgenerobuscado" name="genero" type="checkbox" value="Masculino" id="Masculino">
+                <input class="checkgenerobuscado" name="genero_buscado" type="checkbox" value="Masculino" id="Masculino">
 
                 <label class="label_opciones" for="Femenino">Femenino</label>
-                <input class="checkgenerobuscado" name="genero" type="checkbox" value="Femenino" id="Femenino">
+                <input class="checkgenerobuscado" name="genero_buscado" type="checkbox" value="Femenino" id="Femenino">
 
                 <label class="label_opciones" for="nobinario">No Binario</label>
-                <input class="checkgenerobuscado" name="genero" type="checkbox" value="No Binario" id="nobinario">
+                <input class="checkgenerobuscado" name="genero_buscado" type="checkbox" value="No Binario" id="nobinario">
             </div>
 
 
             <label id="lable_encontrar" for="signo">¿Qué te gustaria encontrar?</label>
             <p>Puedes cambiarlo en cualquier momento</p>
-            <select id="preferencias">
+            <select name="preferencias" id="preferencias">
                 <option value="" disabled selected>-- Seleccione --</option>
                 <option value="Relacion">Una Relación</option>
                 <option value="casual">Algo Casual</option>
@@ -148,23 +167,22 @@ incluirTempleate('header_externo');
             <legend>Tu perfil</legend>
             <label for="descripcion">Agrega una breve descripción sobre ti</label>
             <p>Esta descripción sera visible para los demas usuarios</p>
-            <textarea id="descripcion"></textarea>
+            <textarea name="descripcion" id="descripcion"></textarea>
 
             <label for="imagen"> Por favor agrege una foto para su perfil</label>
             <p>Esta foto sera la predertemina de su perfil, pero la puedes modificar en cualquier momento</p>
-            <input id="imagen" type="file">
+            <input name="foto_perfil" id="imagen" type="file">
 
             <label for="correo">Correo Electrónico</label>
-            <input type="email" placeholder="Correo Electrónico" id="correo" required>
+            <input name="correo" type="email" placeholder="Correo Electrónico" id="correo" >
             <label for="contra">Contraseña</label>
-            <input pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*" title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al menor un dígito" type="password" placeholder="Contraseña" id="contra" required>
-
+            <input name="contra" type="password" placeholder="Contraseña" id="contra" >
             <label for="contraconfirma">Confirmar Contraseña</label>
-            <input type="password" placeholder="Confirma Contraseña" id="contraconfirma" required>
+            <input name="confirmacontra" type="password" placeholder="Confirma Contraseña" id="contraconfirma" >
             <div class="contiene">
             <div class="formulario_enviar">
             <label  for="mayoredad">Confirmo que soy mayor de 18 años</label>
-                <input class="" name="genero" type="checkbox" value="confirmo" id="mayoredad">
+                <input class="" name="confirmacion_mayoredad" type="checkbox" value="confirmo" id="mayoredad">
             <input type="submit" value="REGISTRAR" class="boton-negro">
             </div>
             </div>
