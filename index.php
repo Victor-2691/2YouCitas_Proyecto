@@ -8,7 +8,7 @@ incluirTempleate('header_externo');
 <section class="hero">
     <div class="contenido-hero">
         <h2 class="animate__animated animate__fadeInDown">Citas en Línea</h2>
-        <button class="boton-negro" type="button"> Registrarse</button>
+        <button class="boton-negro" type="button" onclick="location='registro.php'"> Registrarse</button>
     </div>
     <!--.Contenido-Hero Cierre-->
 </section>

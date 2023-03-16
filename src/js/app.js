@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     darkMode();
     
     desactivarenlaces();
+    animacion();
 });
 
 function darkMode() {
@@ -18,19 +19,19 @@ function darkMode() {
     // console.log(prefiereDarkMode.matches);
    
 
-    if(prefiereDarkMode.matches) {
-        document.body.classList.add('dark-mode');
-    } else {
-        document.body.classList.remove('dark-mode');
-    }
+    // if(prefiereDarkMode.matches) {
+    //     document.body.classList.add('dark-mode');
+    // } else {
+    //     document.body.classList.remove('dark-mode');
+    // }
 
-    prefiereDarkMode.addEventListener('change', function() {
-        if(prefiereDarkMode.matches) {
-            document.body.classList.add('dark-mode');
-        } else {
-            document.body.classList.remove('dark-mode');
-        }
-    });
+    // prefiereDarkMode.addEventListener('change', function() {
+    //     if(prefiereDarkMode.matches) {
+    //         document.body.classList.add('dark-mode');
+    //     } else {
+    //         document.body.classList.remove('dark-mode');
+    //     }
+    // });
 
     const botonDarkMode = document.querySelector('.dark-mode-boton');
     botonDarkMode.addEventListener('click', function() {
@@ -62,5 +63,38 @@ function desactivarenlaces(){
      });
   });
 
+}
+
+/*
+ *   This content is licensed according to the W3C Software License at
+ *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+ *
+ *   File:  switch-checkbox.js
+ *
+ *   Desc:  Switch widget using input[type=checkbox] that implements ARIA Authoring Practices
+ */
+
+'use strict';
+
+class CheckboxSwitch {
+  constructor(domNode) {
+    this.switchNode = domNode;
+    this.switchNode.addEventListener('focus', () => this.onFocus(event));
+    this.switchNode.addEventListener('blur', () => this.onBlur(event));
+  }
+
+  onFocus(event) {
+    event.currentTarget.parentNode.classList.add('focus');
+  }
+
+  onBlur(event) {
+    event.currentTarget.parentNode.classList.remove('focus');
+  }
+}
+
+function animacion(){
+    Array.from(
+        document.querySelectorAll('input[type=checkbox][role^=switch]')
+      ).forEach((element) => new CheckboxSwitch(element));
 }
 

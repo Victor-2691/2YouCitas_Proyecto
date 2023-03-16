@@ -15,8 +15,7 @@ So es true mostramos el header inicio que tiene la imagen -->
     <header class="header">
         <div class="contenido-header">
             <div class="barra">
-                <a class="animate__animated animate__rubberBand" href="/Proyectos/
-                bienesRaicesPHP_inicio/index.php">
+                <a class="animate__animated animate__rubberBand" href="index.php">
                     <img src="build/img/logo2youcitas150final.svg" alt="Logotipo 2YouCitas">
                 </a>
                 <div class="mobile-menu">
@@ -26,9 +25,9 @@ So es true mostramos el header inicio que tiene la imagen -->
                 <div class="derecha">
                     <img class="dark-mode-boton" src="build/img/dark-mode.svg">
                     <nav class="navegacion">
-                        <a href="nosotros.php">Inicio</a>
+                        <a href="index.php">Inicio</a>
                         <a href="inicio_sesion.php">Iniciar Sesión</a>
-                        <a href="contacto.php">Registrarse</a>
+                        <a href="registro.php">Registrarse</a>
                        
                     </nav>
                 </div>
