@@ -21,9 +21,9 @@ include_once 'db.php';
                     <form action="" method="POST" class="form 
                     form-ln-gray">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email">
+                        <input require type="email" id="email" name="email">
                         <label for="password">Contraseña</label>
-                        <input type="password" name="password">
+                        <input req type="password" name="password">
                         <p class="small txt-gray"><a href="#"><span class="txt-primary">Olvide mi Contraseña</span></a></p>
                         <input class="btn" type="submit" name="iniciar_sesion" value="Iniciar Sesion">
                         <!--<button class="btn" type="button" onclick="location.href='descubrir.php'">Iniciar Sesion</button> -->
@@ -56,6 +56,19 @@ if (isset($_POST['iniciar_sesion'])) {
     //$querynombre = mysqli_query($db,"SELECT * FROM Clientes_Externos WHERE nombre = '".$nombre."' ");
     //esta  variable es para contar las filas del query
     $nr = mysqli_num_rows($query);
+   
+    foreach ($query  as $key => $opciones) {
+        var_dump($query);
+
+
+    }
+  
+
+
+
+    echo "<pre>";
+    var_dump($nr);
+    echo "</pre>";
 
     //validar que no hayan 2 usuarios ingresando al mismo tiempo
     if (!isset($_SESSION['nombredelusuario'])) {
