@@ -35,9 +35,7 @@ $fecha_actual_completa = $fecha_actual['year'] . "-" . $fecha_actual['mon'] . "-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
-    // echo "<pre>";
-    // var_dump ($_POST['fecha_nacimiento']);
-    // echo "<pre>";
+
     // echo "<pre>";
     // var_dump($_POST['Femenino']);
     // echo "<pre>";
@@ -46,6 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // echo "<pre>";
 
     // Asignamos variables para realizar las respectivas validaciones
+
+    $imagen = $_FILES['foto_perfil'];
     $nombre = $_POST['nombre'];
     $apellido1 = $_POST['primer_apellido'];
     $apellido2 = $_POST['segundo_apellido'];
@@ -62,6 +62,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $intereses = $_POST['intereses'];
     $preferencias = $_POST['preferencias'];
     $contador = 0;
+
+    // Validamos imagen
+
+
+
+    // echo "<pre>";
+    // var_dump($_FILES['foto_perfil']);
+    // echo "<pre>";
+
+    // echo "<pre>";
+    // var_dump($imagen);
+    // echo "<pre>";
+    // // exit;
+
+
 
     // Comenzamos las validaciones si los campos estan vacios
     if (!$nombre) {
@@ -125,6 +140,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores[] = "Debes seleccionar al menos 2 intereses (sobre ti)";
     }
 
+
+    if (!$imagen['name']) {
+        $errores[] = "La imagen es obligatoria";
+    }
+
+    // Validar por size
+
+    $medida = 4000000;
+
+    if ($imagen['size'] > $medida) {
+        $errores[] = "La imagen es muy pesada";
+    }
+
+    if ($imagen['error'] > 0) {
+        $errores[] = "Ocurrio un problema con la imagen";
+    }
+
+
+
+
+
     // Puedo usar un contador para saber cuantos selecciono   
     foreach ($_POST['intereses'] as $selected) {
         $contador += 1;
@@ -146,15 +182,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores[] = "El correo electronico ya se encuentra registrado";
         echo "<script>alert('El correo ya se encuentra registrado') </script>";
     }
-
-
-
-
-
-
-
-
-
     // Controles que tienen valor por defecto por lo cual no pueden estar vacios
     if (isset($_POST["edadvisible"])) {
         $edadvisiable = 1;
@@ -226,8 +253,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
            id_intereses)
             VALUES
             ($idcliente,$selected)";
-            $resultadointereses =  mysqli_query($db, $query3);
-
+                    $resultadointereses =  mysqli_query($db, $query3);
                 }
 
                 if ($resultadointereses) {
@@ -240,6 +266,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     if (($resultado4 = mysqli_query($db, $query4))) {
                         echo "Se inserto de forma correcta preferencias";
+
+                        // Insertar imagen
+                        // Archivo temporal
+                        $imagen_temporal = $imagen['tmp_name'];
+                        // Tipo de archivo
+                        $tipo = $imagen['type'];
+                        // Leemos el contenido del archivo temporal en binario
+                        $data = addslashes(file_get_contents($imagen_temporal));
+
+                        $query5 = " INSERT INTO imagenes_clientes (id_cliente,
+                        imagen_perfil,imagen,tipo_imagen)
+                        VALUES
+                        ($idcliente,1,'$data','$tipo')";
+                        if (($resultado5 = mysqli_query($db, $query5))) {
+                            echo "Se inserto imagen de forma correcta";
+                        } else {
+                            die(mysqli_error($db));
+                        }
                     } else {
                         die(mysqli_error($db));
                     }
@@ -253,34 +297,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             die(mysqli_error($db));
         }
-
-
-
-        //   else{
-        //     echo "Error al insertar";
-        //   }
-
-
-
     }
-
-
-
-
-
-
-    // echo "<pre>";
-    // var_dump($errores);
-    // echo "<pre>";
-
-
-    // Para detener la ejecucion
-
-
-
-
-    // Insertamos en la BD
-
 }
 
 
@@ -358,15 +375,15 @@ incluirTempleate('header_externo');
     <!-- Mostrando arreglo de errores validaciones -->
 
     <?php foreach ($errores as $error) :  ?>
-        <div class="alerta error">
+        <div class="alerta error"></div>
 
-            <?php echo $error  ?>
+        <?php echo $error  ?>
         </div>
 
 
     <?php endforeach; ?>
 
-    <form class="formulario" method="POST" action="registro.php">
+    <form class="formulario" method="POST" action="registro.php" enctype="multipart/form-data">
         <fieldset class="fielsombra">
             <legend>Datos Generales</legend>
 
@@ -529,7 +546,7 @@ incluirTempleate('header_externo');
 
             <label for="imagen"> Por favor agrege una foto para su perfil</label>
             <p>Esta foto sera la predertemina de su perfil, pero la puedes modificar en cualquier momento</p>
-            <input name="foto_perfil" id="imagen" type="file">
+            <input name="foto_perfil" id="imagen" type="file" accept="image/jpeg, img/jpg">
 
             <label for="correo">Correo Electrónico</label>
             <input name="correo" type="email" placeholder="Correo Electrónico" id="correo">

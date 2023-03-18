@@ -1,10 +1,8 @@
+
 <?php
 
 require 'includes/funciones.php';
 incluirTempleate('header_interno');
-
-
-include "functions.php";
 
 ?>
 
