@@ -53,23 +53,13 @@ if (isset($_POST['iniciar_sesion'])) {
     $pass = $_POST['password'];
 
     $query = mysqli_query($db,"SELECT * FROM Usuarios_Clientes_Externo WHERE correo_electronico = '".$correo."' AND contrasena = '".$pass."' ");
-    //$querynombre = mysqli_query($db,"SELECT * FROM Clientes_Externos WHERE nombre = '".$nombre."' ");
+ 
+
     //esta  variable es para contar las filas del query
+
+
     $nr = mysqli_num_rows($query);
-   
-    foreach ($query  as $key => $opciones) {
-        var_dump($query);
-
-
-    }
-  
-
-
-
-    echo "<pre>";
-    var_dump($nr);
-    echo "</pre>";
-
+ 
     //validar que no hayan 2 usuarios ingresando al mismo tiempo
     if (!isset($_SESSION['nombredelusuario'])) {
 

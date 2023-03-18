@@ -146,15 +146,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores[] = "El correo electronico ya se encuentra registrado";
         echo "<script>alert('El correo ya se encuentra registrado') </script>";
     }
-
-
-
-
-
-
-
-
-
     // Controles que tienen valor por defecto por lo cual no pueden estar vacios
     if (isset($_POST["edadvisible"])) {
         $edadvisiable = 1;
@@ -226,8 +217,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
            id_intereses)
             VALUES
             ($idcliente,$selected)";
-            $resultadointereses =  mysqli_query($db, $query3);
-
+                    $resultadointereses =  mysqli_query($db, $query3);
                 }
 
                 if ($resultadointereses) {
