@@ -4,9 +4,6 @@
 require 'includes/funciones.php';
 incluirTempleate('header_interno');
 
-echo "<pre>";
-var_dump($_SESSION);
-echo "</pre>";
 ?>
 
 <!DOCTYPE html>

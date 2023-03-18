@@ -18,12 +18,12 @@ $_SESSION['nombre'] = $nombre;
 $nombreusuario = $_SESSION['nombre'];
 
 
-// if(isset($_SESSION['nombredelusuario'])){
-//     $usuarioingresado = $_SESSION['nombredelusuario'];
-//     //echo "<h1>Bienvanido: $usuarioingresado </h1>";
-// }else{
-//     header('location: inicio_sesion.php');
-// }
+if(isset($_SESSION['nombredelusuario'])){
+    $usuarioingresado = $_SESSION['nombredelusuario'];
+    //echo "<h1>Bienvanido: $usuarioingresado </h1>";
+}else{
+    header('location: inicio_sesion.php');
+}
 
 
 ?>
@@ -72,7 +72,7 @@ So es true mostramos el header inicio que tiene la imagen -->
                         <a href="#">Mensajes</a>
                         <a href="#">Actividad</a>
                         <a href="#">Perfil</a>
-                        <a href="#"><?php echo "$usuarioingresado";?></a>
+                        <a href="#"><?php echo "$nombreusuario";?></a>
                         <br>
                         |
                         <br>
