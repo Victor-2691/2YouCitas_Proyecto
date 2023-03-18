@@ -60,7 +60,7 @@ So es true mostramos el header inicio que tiene la imagen -->
                         <a href="#">Mensajes</a>
                         <a href="#">Actividad</a>
                         <a href="#">Perfil</a>
-                        <a href="#"><?php echo "$usuarioingresado";?></a>
+                        <a href="#"><?php echo "$nombreusuario";?></a>
                         <br>
                         |
                         <br>
