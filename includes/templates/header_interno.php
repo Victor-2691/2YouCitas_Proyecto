@@ -1,18 +1,30 @@
 <?php
 
 session_start();
+include_once 'db.php';
+$correousuarioautenticado = $_SESSION['nombredelusuario'];
 
-if(isset($_SESSION['nombredelusuario'])){
-    $usuarioingresado = $_SESSION['nombredelusuario'];
-    //echo "<h1>Bienvanido: $usuarioingresado </h1>";
-}else{
-    header('location: inicio_sesion.php');
-}
+$query = mysqli_query($db,"SELECT u.id_cliente, c.nombre, c.primer_apellido FROM Usuarios_Clientes_Externo u join Clientes_Externos c
+on u.id_cliente = c.id_cliente WHERE u.correo_electronico = '$correousuarioautenticado'");
 
-if(isset($_POST['cerrar_sesion'])){
-    session_destroy();
-    header('location: inicio_sesion.php');
-}
+//esta  variable es para contar las filas del query
+foreach ($query  as $key => $opciones) :
+    $idcliente = $opciones['id_cliente'];  
+    $nombre = $opciones['nombre'];
+endforeach;
+
+$_SESSION['idcliente'] = $idcliente;
+$_SESSION['nombre'] = $nombre;
+$nombreusuario = $_SESSION['nombre'];
+
+
+// if(isset($_SESSION['nombredelusuario'])){
+//     $usuarioingresado = $_SESSION['nombredelusuario'];
+//     //echo "<h1>Bienvanido: $usuarioingresado </h1>";
+// }else{
+//     header('location: inicio_sesion.php');
+// }
+
 
 ?>
 
@@ -60,7 +72,7 @@ So es true mostramos el header inicio que tiene la imagen -->
                         <a href="#">Mensajes</a>
                         <a href="#">Actividad</a>
                         <a href="#">Perfil</a>
-                        <a href="#"><?php echo "$nombreusuario";?></a>
+                        <a href="#"><?php echo "$usuarioingresado";?></a>
                         <br>
                         |
                         <br>
