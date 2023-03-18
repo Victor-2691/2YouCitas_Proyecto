@@ -73,12 +73,7 @@ So es true mostramos el header inicio que tiene la imagen -->
                         <a href="actividad.php">Actividad</a>
                         <a href="perfil.php">Perfil</a>
                         <a href="#"><?php echo "$nombreusuario";?></a>
-                        <br>
-                        |
-                        <br>
-                        <form action="" method="POST">
-                            <input type="submit" value="Cerrar Sesion" name="cerrar_sesion">
-                        </form> 
+                        <a href="salir.php">Salir</a>
                     </nav>
                 </div>
 
