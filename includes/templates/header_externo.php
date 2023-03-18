@@ -7,6 +7,7 @@
     <title>2 YouCitas</title>
     <link rel="stylesheet" href="build/css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
 <body>
