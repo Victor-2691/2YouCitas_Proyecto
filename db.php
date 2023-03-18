@@ -5,7 +5,7 @@ if(!$db){
     echo "Error en la conexion";
 }
 else{
-    echo "Conexion exitosa remota";
+    //echo "Conexion exitosa remota";
 }
 
 

@@ -21,7 +21,7 @@ incluirTempleate('header_interno');
             <h2>Mi Perfil</h2>
             <a href="#">Editar Intereses</a>
             <a href="#">Editar Preferencias</a>
-            <a href="#">Editar Fotos</a>
+            <a href="subir.php">Editar Fotos</a>
             <a href="#">Editar Configuración</a>
         </div>
     </div>

@@ -71,6 +71,3 @@ if (isset($_POST['iniciar_sesion'])) {
 }
 
 ?>
-
-
-
