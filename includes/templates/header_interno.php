@@ -71,7 +71,7 @@ So es true mostramos el header inicio que tiene la imagen -->
                         <a href="descubrir.php">Descubrir</a>
                         <a href="mensajes.php">Mensajes</a>
                         <a href="actividad.php">Actividad</a>
-                        <a href="perfil.php">Perfil</a>
+                        <a href="perfil.php"> Perfil</a>
                         <a href="#"><?php echo "$nombreusuario";?></a>
                         <a href="salir.php">Salir</a>
                     </nav>
