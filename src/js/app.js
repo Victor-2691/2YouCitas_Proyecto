@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     desactivarenlaces();
     animacion();
+
+    // btnperfil();
 });
 
 function darkMode() {
@@ -97,4 +99,12 @@ function animacion(){
         document.querySelectorAll('input[type=checkbox][role^=switch]')
       ).forEach((element) => new CheckboxSwitch(element));
 }
+
+
+// function btnperfil() {
+//   var id = document.querySelector('#id_usuario').innerText;
+//   console.log(id);
+//   // window.location = 'perfilusuariodescubrir.php';
+//   window.location = `perfilusuariodescubrir.php?id=${id}`;
+// }
 

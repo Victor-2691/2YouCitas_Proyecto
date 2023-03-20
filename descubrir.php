@@ -6,7 +6,15 @@ incluirTempleate('header_interno');
 require 'includes/config/database.php';
 $db = conectarBD();
 
+// Codigo para enviar parametros por el header
+
+// header("Location:perfilusuariodescubrir.php?mensaje=estaesunaprueba&mensaje2=estaotromensaje");
+
+// $mensaje = $_GET['mensaje'];
+// <?php header("Location:perfilusuariodescubrir.php?id=$idCliente"
+
 ?>
+
 
 <?php
 
@@ -36,22 +44,24 @@ endforeach;
 ?>
 
 
+
 <main class="contenedor_descrubrir">
+    <p id="id_usuario" hidden><?php echo $idCliente ?></p>
     <h1>Descubrir</h1>
     <div class="card">
         <div class="content">
-            <h2> <?php echo $nombre ?>  <span class="edad">  <?php echo $edad ?> Años</span> </h2>
+            <h2> <?php echo $nombre ?> <span class="edad"> <?php echo $edad ?> Años</span> </h2>
 
             <p>A 8 Kilómetros de distancia</p>
-          <div class="btn_contenedor">
-          <button class="btn_descrubir">Atras</button>
-           <button class="btn_descrubir">X</button>
-           <button class="btn_descrubir">Like</button>
-           <button class="btn_descrubir">Suspiro</button>
-           <button class="btn_descrubir">Perfil</button>
+            <div class="btn_contenedor">
+                <button class="btn_descrubir">Atras</button>
+                <button class="btn_descrubir">X</button>
+                <button class="btn_descrubir">Like</button>
+                <button class="btn_descrubir">Suspiro</button>
+                <button class="btn_descrubir" onclick="btnperfil()">Pefil</button>
 
-          </div>
-           
+            </div>
+
         </div>
     </div>
 
@@ -61,6 +71,16 @@ endforeach;
 
         }
     </style>
+
+    <script type="text/javascript">
+        function btnperfil() {
+            var id = document.querySelector('#id_usuario').innerText;
+            console.log(id);
+            // window.location = 'perfilusuariodescubrir.php';
+            window.location = `perfilusuariodescubrir.php?id=${id}`;
+        }
+    </script>
+
 
 </main>
 

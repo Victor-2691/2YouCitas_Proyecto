@@ -51,16 +51,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $apellido2 = $_POST['segundo_apellido'];
     $telefono = $_POST['telefono'];
     $fecha_nacimiento = $_POST['fecha_nacimiento'];
-    $signozodiaco = $_POST['signozodiaco'];
+    $signozodiaco = $_POST['signozodiaco'] ?? null;
     $descripcion = $_POST['descripcion'];
     $correo = $_POST['correo'];
     $contra = $_POST['contra'];
     $confirmacontra = $_POST['confirmacontra'];
-    $confirmacion_mayoredad = $_POST['confirmacion_mayoredad'];
-    $generobuscado =    $_POST['check_list_generobuscado'];
-    $generopertenece = $_POST['genero_pertenece'];
-    $intereses = $_POST['intereses'];
-    $preferencias = $_POST['preferencias'];
+    $confirmacion_mayoredad = $_POST['confirmacion_mayoredad'] ??null;
+    $generobuscado =    $_POST['check_list_generobuscado'] ?? null;
+    $generopertenece = $_POST['genero_pertenece'] ?? null;
+    $intereses = $_POST['intereses'] ?? null;
+    $preferencias = $_POST['preferencias'] ?? null;
     $contador = 0;
 
     // Validamos imagen
@@ -153,19 +153,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores[] = "La imagen es muy pesada";
     }
 
-    if ($imagen['error'] > 0) {
-        $errores[] = "Ocurrio un problema con la imagen";
-    }
-
-
-
-
 
     // Puedo usar un contador para saber cuantos selecciono   
+   if(isset($_POST['intereses'])){
     foreach ($_POST['intereses'] as $selected) {
         $contador += 1;
     }
 
+   }
     if ($contador > 5) {
         $errores[] = "La cantidad maxima de intereses es de 5 (sobre ti)";
     }
@@ -375,9 +370,12 @@ incluirTempleate('header_externo');
     <!-- Mostrando arreglo de errores validaciones -->
 
     <?php foreach ($errores as $error) :  ?>
-        <div class="alerta error"></div>
+        <div class="alerta error">
 
         <?php echo $error  ?>
+        </div>
+
+     
         </div>
 
 
