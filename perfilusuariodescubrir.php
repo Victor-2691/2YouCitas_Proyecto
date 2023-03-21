@@ -28,6 +28,7 @@ foreach ($ejecutar as $key => $opciones) :
     $genero =    $opciones['generopertenece'];
     $buscando = $opciones['buscando'];
     $edad = $opciones['edad'];
+
 endforeach;
 
 
@@ -77,7 +78,7 @@ $ejecutar2 = mysqli_query($db, $consulta2);
         </div>
 
         <div class="contenido_perfil_descrip">
-
+        <p> <? echo $descripcion?> </p>
 
             <div class="perfil_nombre_distancia">
                 <h1 id="margin0"> <?php echo $nombre ?> - <span class="edad"> <?php echo $edad ?> Años</span> </h1>
@@ -91,7 +92,7 @@ $ejecutar2 = mysqli_query($db, $consulta2);
 
             <div class="perfil_descripcion">
                 <h1>Descripción</h1>
-                <p> <? echo $descripcion  ?></p>
+                <p> <?php echo $descripcion ?>  </p>
             </div>
 
 
@@ -107,7 +108,7 @@ $ejecutar2 = mysqli_query($db, $consulta2);
                     </div>
                     <div class="iconos_flex">
                         <img class="iconos" src="https://img.icons8.com/ios/50/null/gender.png" />
-                        <p><?php echo $genero ?> </p>
+                        <p> <?php echo $genero ?> </p>
                     </div>
 
                 </div>
