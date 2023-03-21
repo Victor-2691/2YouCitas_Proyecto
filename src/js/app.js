@@ -20,9 +20,9 @@ function darkMode() {
 
     // console.log(prefiereDarkMode.matches);
    
-
+   // console.log(prefiereDarkMode.matches);
     if(prefiereDarkMode.matches) {
-        document.body.classList.add('dark-mode');
+      document.body.classList.add('dark-mode');
     } else {
         document.body.classList.remove('dark-mode');
     }
@@ -31,7 +31,7 @@ function darkMode() {
         if(prefiereDarkMode.matches) {
             document.body.classList.add('dark-mode');
         } else {
-            document.body.classList.remove('dark-mode');
+          document.body.classList.remove('dark-mode');
         }
     });
 
