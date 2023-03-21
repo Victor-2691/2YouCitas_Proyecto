@@ -46,7 +46,7 @@ So es true mostramos el header inicio que tiene la imagen -->
     <header class="header">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a class="animate__animated animate__rubberBand" href="../index.php">
+                <a class="animate__animated animate__rubberBand" href="index.php">
                     <img src="build/img/logo2youcitas150final.svg" alt="Logotipo 2YouCitas">
                 </a>
                 <div class="mobile-menu">

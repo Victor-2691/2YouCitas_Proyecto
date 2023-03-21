@@ -52,8 +52,6 @@
         //     -moz-box-shadow: 10px 10px 5px 0px rgba(163,163,163,1);
         //     box-shadow: 10px 10px 5px 0px rgba(163,163,163,1);
         //   }
-
-
     }
 
     .s123_cuadro {
@@ -87,7 +85,37 @@
         font-weight: $bold;
     }
 
-    .iconos{
+    .iconos {
         filter: invert(100%);
+    }
+
+    #margin0 {
+        color: $principal;
+    }
+
+    // .perfil_descripcion{
+    //     h1{
+    //         color: $blanco;
+    //     }
+    // }
+
+    // .perfil_preferencias{
+    //     h1{
+    //         color: $blanco;
+    //     }
+    // }
+
+    #h1_sobremi {
+        color: $blanco;
+    }
+
+    // .quemegusta{
+    //     color: $blanco;
+    // }
+
+    .contenedor_grid {
+        h1 {
+            color: $blanco;
+        }
     }
 }

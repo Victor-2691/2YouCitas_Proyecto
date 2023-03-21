@@ -23,8 +23,7 @@ $consulta = "
 CI.edad,CI.descripcion, 
 sz.nombre_signo, GP.nombre_genero
  FROM Clientes_Externos CI JOIN signos_zodiaco sz ON
-sz.id_signo = CI.id_genero_signozodiaco JOIN generos_pertenece GP ON GP.id_genero = CI.id_genero_pertenece
-ORDER BY rand() LIMIT 1;";
+sz.id_signo = CI.id_genero_signozodiaco JOIN generos_pertenece GP ON GP.id_genero = CI.id_genero_pertenece ORDER BY rand() LIMIT 1;";
 $ejecutar = mysqli_query($db, $consulta);
 foreach ($ejecutar as $key => $opciones) :
     $idCliente =  $opciones['id_cliente'];

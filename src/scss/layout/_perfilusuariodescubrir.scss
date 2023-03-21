@@ -1,20 +1,25 @@
 .contenedor_perfil {
   max-width: 100rem;
   margin: 0 auto;
-  width: 90%;
+  width: 95%;
 
   h1 {
     color: $negro;
     font-weight: $bold;
     font-size: 2rem;
   }
+
+  @include tablet{
+    width: 50%;
+
+  }
 }
+
+
 
 #margin0 {
   margin: 0;
 }
-
-
 
 .galeria {
   height: calc(300px + 3em);
@@ -164,6 +169,8 @@
     rgba(228, 105, 242, 1) 100%
   );
   padding: 1.5rem;
+
+
 }
 
 .interereses {
@@ -174,8 +181,61 @@
 }
 
 .interes_individual{
-  border-image: linear-gradient( $principal 0%, #3a4ed5 100%) 1; 
-  border: solid ;
-  border-radius: 2rem;
+  border-radius: 5rem;
+  border: 2px solid ;
+  border-image: linear-gradient(to right, red, purple) 1;
 
 }
+
+// @include tablet{
+
+//   .contenedor_grid{
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+//     grid-template-rows: repeat(2, 1fr);
+//     gap: 2rem;
+//    align-items: center;
+//   }
+
+// // .perfil_nombre_distancia{
+// //   grid-column: 2 / 3;
+// //   grid-row: 1 / 2 ;
+// // }
+
+// //   .perfil_descripcion{
+// //     grid-column: 2 / 3;
+// //     grid-row: 1 / 2 ;
+   
+// //   }
+
+//   .perfil_nombre_distancia {
+//     border-bottom: none;
+//   }
+
+//   .perfil_descripcion {
+   
+//     border-bottom: none;
+//   }
+
+  
+// .perfil_sobre_mi {
+//   border-bottom: none;
+
+// }
+
+// .perfil_preferencias {
+//   border-bottom: none;
+// }
+  
+// .iconos_flex {
+
+//   margin-bottom: 0rem;
+//   margin-left: 2rem;
+// }
+
+// .perfil_sobre_mi {
+//   justify-content: center;
+// }
+
+  
+// }
