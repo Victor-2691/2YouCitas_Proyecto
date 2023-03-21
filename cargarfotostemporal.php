@@ -9,25 +9,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $imagen = $_FILES['foto_perfil'];
     $id = $_POST['id'];
 
-// Insertar imagen
-// Archivo temporal
-$imagen_temporal = $imagen['tmp_name'];
-// Tipo de archivo
-$tipo = $imagen['type'];
-// Leemos el contenido del archivo temporal en binario
-$data = addslashes(file_get_contents($imagen_temporal));
+    // Insertar imagen
+    // Archivo temporal
+    $imagen_temporal = $imagen['tmp_name'];
+    // // Tipo de archivo
+    $tipo = $imagen['type'];
+    // // Leemos el contenido del archivo temporal en binario
+    $data = addslashes(file_get_contents($imagen_temporal));
 
-$query5 = " INSERT INTO imagenes_clientes (id_cliente,
-                        imagen_perfil,imagen,tipo_imagen)
-                        VALUES
-                        ($id,1,'$data','$tipo')";
-if (($resultado5 = mysqli_query($db, $query5))) {
-    echo "Se inserto imagen de forma correcta";
-} else {
-    die(mysqli_error($db));
-}
+    // For Loop
 
 
+
+    $query5 = " INSERT INTO imagenes_clientes (id_cliente,
+                            imagen_perfil,imagen,tipo_imagen)
+                            VALUES
+                            ($id,1,'$data','$tipo')";
+
+    if (($resultado5 = mysqli_query($db, $query5))) {
+        echo "Se inserto imagen de forma correcta";
+    } else {
+        die(mysqli_error($db));
+    }
 }
 
 
