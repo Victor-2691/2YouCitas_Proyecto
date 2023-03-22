@@ -89,7 +89,7 @@ endforeach;
             </form> 
 
             </div>
-
+            <button class="" onclick="btnperfil()"><i class="fa-solid fa-address-card fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
         </div>
     </div>
 
