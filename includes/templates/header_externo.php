@@ -17,7 +17,7 @@ So es true mostramos el header inicio que tiene la imagen -->
         <div class="contenido-header">
             <div class="barra">
                 <a class="animate__animated animate__rubberBand" href="index.php">
-                    <img src="build/img/logo2youcitas150final.svg" alt="Logotipo 2YouCitas">
+                    <img class="imgloco" src="build/img/Logo2Youcitas_Sinfondo.svg" alt="Logotipo 2YouCitas">
                 </a>
                 <div class="mobile-menu">
                     <img src="build/img/barras.svg" alt="icono menu responsive">
@@ -25,6 +25,7 @@ So es true mostramos el header inicio que tiene la imagen -->
 
                 <div class="derecha">
                     <img class="dark-mode-boton" src="build/img/dark-mode.svg">
+                    <img class="dark-mode-boton day" src="build/img/daymode.svg">
                     <nav class="navegacion">
                         <a href="index.php">Inicio</a>
                         <a href="inicio_sesion.php">Iniciar Sesión</a>

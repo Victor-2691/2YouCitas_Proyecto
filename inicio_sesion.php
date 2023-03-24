@@ -52,20 +52,32 @@ if (isset($_POST['iniciar_sesion'])) {
     $correo = $_POST['email'];
     $pass = $_POST['password'];
 
+
     $query = mysqli_query($db,"SELECT * FROM Usuarios_Clientes_Externo WHERE correo_electronico = '".$correo."' AND contrasena = '".$pass."' ");
- 
+    $consulta = mysqli_fetch_assoc($query);
 
     //esta  variable es para contar las filas del query
 
 
     $nr = mysqli_num_rows($query);
+
  
     //validar que no hayan 2 usuarios ingresando al mismo tiempo
     if (!isset($_SESSION['nombredelusuario'])) {
 
         if ($nr == 1) {
-            $_SESSION['nombredelusuario'] = $correo;
-            header("location: descubrir.php");
+            // Validar si ya lleno el perfil 0 ya esta lleno 1 esta pendiente
+            if($consulta['Estado'] == 1){
+                $_SESSION['nombredelusuario'] = $correo;
+                header("location: formulario1.php");
+            }
+
+            else{
+                $_SESSION['nombredelusuario'] = $correo;
+                header("location: descubrir.php");
+            }
+
+          
         }elseif ($nr == 0) {
             echo "<script>alert('El correo no existe'); window.location = 'inicio_sesion.php' </script>";
         }

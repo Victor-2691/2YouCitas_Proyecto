@@ -33,9 +33,6 @@ $fecha_actual_completa = $fecha_actual['year'] . "-" . $fecha_actual['mon'] . "-
 
 // Accedemos al evento post del formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-
-
     // echo "<pre>";
     // var_dump($_POST['Femenino']);
     // echo "<pre>";
@@ -566,6 +563,11 @@ incluirTempleate('header_externo');
 
     </form>
 </main>
+
+
+
+
+
 
 <!-- Se arma como un rompecabezas el fin del HTML esta en el footer -->
 <?php

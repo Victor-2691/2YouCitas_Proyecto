@@ -4,12 +4,12 @@ session_start();
 include_once 'db.php';
 $correousuarioautenticado = $_SESSION['nombredelusuario'];
 
-$query = mysqli_query($db,"SELECT u.id_cliente, c.nombre, c.primer_apellido FROM Usuarios_Clientes_Externo u join Clientes_Externos c
+$query = mysqli_query($db, "SELECT u.id_cliente, c.nombre, c.primer_apellido FROM Usuarios_Clientes_Externo u join Clientes_Externos c
 on u.id_cliente = c.id_cliente WHERE u.correo_electronico = '$correousuarioautenticado'");
 
 //esta  variable es para contar las filas del query
 foreach ($query  as $key => $opciones) :
-    $idcliente = $opciones['id_cliente'];  
+    $idcliente = $opciones['id_cliente'];
     $nombre = $opciones['nombre'];
 endforeach;
 
@@ -18,10 +18,10 @@ $_SESSION['nombre'] = $nombre;
 $nombreusuario = $_SESSION['nombre'];
 
 
-if(isset($_SESSION['nombredelusuario'])){
+if (isset($_SESSION['nombredelusuario'])) {
     $usuarioingresado = $_SESSION['nombredelusuario'];
     //echo "<h1>Bienvanido: $usuarioingresado </h1>";
-}else{
+} else {
     header('location: inicio_sesion.php');
 }
 
@@ -44,43 +44,40 @@ if(isset($_SESSION['nombredelusuario'])){
     <!-- Para solo mostrar el header en la pagina de inicio
 So es true mostramos el header inicio que tiene la imagen -->
     <header class="header">
-        <div class="contenedor contenido-header">
+        <div class="contenedor contenido-header header_interno">
             <div class="barra">
                 <a class="animate__animated animate__rubberBand" href="index.php">
-                    <img src="build/img/logo2youcitas150final.svg" alt="Logotipo 2YouCitas">
+                    <img class="imgloco" src="build/img/Logo2Youcitas_Sinfondo.svg" alt="Logotipo 2YouCitas">
                 </a>
-                <div class="mobile-menu">
-                    <img src="build/img/barras.svg" alt="icono menu responsive">
+                
+                <div hidden class="mobile-menu">
+                   
                 </div>
-
-                <div class="row center-xs margin-top">
-                    <div class="col-xs-6">
-                        <div class="box">
-                        <i class="fa-brands fa-product-hunt fa-beat "></i>
-                        <i class="fa-brands fa-product-hunt fa-beat "></i>
-                        <i class="fa-brands fa-product-hunt fa-beat "></i>
-                        </div>
-
-                    </div>
-
-                </div>
-
+               
                 <div class="derecha">
                     <img class="dark-mode-boton" src="build/img/dark-mode.svg">
-                    <nav class="navegacion">
+                    <img class="dark-mode-boton day btntema" src="build/img/daymode.svg">
+                    <nav class="navegacion ">
                         <a href="descubrir.php">Descubrir</a>
                         <a href="mensajes.php">Mensajes</a>
                         <a href="actividad.php">Actividad</a>
                         <a href="perfil.php"> Perfil</a>
-                        <a href="#"><?php echo "$nombreusuario";?></a>
+                        <a href="#"><?php echo "$nombreusuario"; ?></a>
                         <a href="salir.php">Salir</a>
                     </nav>
                 </div>
 
             </div> <!--.barra-->
+        </div>
 
+        <div class="header_movil">
+            <div class="logo_movil">
+                <img src="build/img/2youcitasletras.svg" alt="Logotipo 2YouCitas">
+                <img class="dark-mode-boton btntema" src="build/img/dark-mode.svg">
+                <img class="dark-mode-boton day btntema" src="build/img/daymode.svg">
+            </div>
 
-
+            
 
 
 

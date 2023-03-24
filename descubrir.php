@@ -46,9 +46,7 @@ endforeach;
 
 <main class="contenedor_descrubrir">
     <p id="id_usuario" hidden><?php echo $idCliente ?></p>
-    <h1>Descubrir</h1>
-
-
+    
     <div class="card">
         <div class="content">
             <h2> <?php echo $nombre ?> <span class="edad"> <?php echo $edad ?> Años</span> </h2>
@@ -91,6 +89,10 @@ endforeach;
             </div>
             <button class="" onclick="btnperfil()"><i class="fa-solid fa-address-card fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
         </div>
+    </div>
+
+    <div>
+        <h1 hidden></h1>
     </div>
 
     <style>
