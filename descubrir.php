@@ -42,15 +42,25 @@ endforeach;
 
 ?>
 
+
+
 <?php
 //para los likes
+if(isset($_SESSION['idcliente'])){
+    $sessionid = $_SESSION['idcliente'];
+    //echo "<h1>Bienvanido: $sessionid </h1>";
+}
 
 ?>
 
 
+
+
+
 <main class="contenedor_descrubrir">
 
-    <p id="id_usuario" hidden><?php echo $idCliente ?></p>
+    <p id="id_usuario" ><?php echo $idCliente ?></p>
+    <p id="id_userlogueado" ><?php echo $sessionid ?></p>
     <h1>Descubrir</h1>
 
 
@@ -60,12 +70,27 @@ endforeach;
 
             <p>A 8 Kilómetros de distancia</p>
             <div class="btn_contenedor">
-            <!-- Botón de "like" -->
 
             <!-- form para llevar a otros links los botones -->
-            <form method="post" action="descubrir.php">
-                <button class="like-button" data-perfil-id="<?php echo $idCliente; ?>" >Like</button>
+            <form method="post" action="guardar_like.php">
+            <button class="like-button" data-perfil-id="<?php echo $idCliente ?>" data-usuario-id="<?php echo $sessionid ?>">Like</button>
 
+                <!-- para los likes -->
+                <script>
+                $(document).ready(function() {
+                    $('.like-button').click(function() {
+                        console.log('Botón de like clickeado');
+                        var perfilId = $(this).data('perfil-id');
+                        var usuarioId = $(this).data('usuario-id');
+                        console.log('perfilId:', perfilId);
+                        console.log('usuarioId:', usuarioId);
+
+                        $.post('guardar_like.php', { perfilId: perfilId, usuarioId: usuarioId }, function(data) {
+                            console.log('Respuesta del servidor:', data);
+                        });
+                    });
+                });
+                </script>
                 <button class="btn_descrubir"><i class="fa-solid fa-rotate-left fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; " ></i> </button>
                 <button class="btn_descrubir"><i class="fa-sharp fa-solid fa-circle-xmark fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
                 <button class="btn_descrubir"><i class="fa-solid fa-thumbs-up fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
@@ -74,6 +99,7 @@ endforeach;
             </form> 
 
             </div>
+            <button class="" onclick="btnlike()">like </button>
             <button class="" onclick="btnperfil()"><i class="fa-solid fa-address-card fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
         </div>
     </div>
@@ -91,6 +117,17 @@ endforeach;
             console.log(id);
             // window.location = 'perfilusuariodescubrir.php';
             window.location = `perfilusuariodescubrir.php?id=${id}`;
+        }
+    </script>
+        <script type="text/javascript">
+        function btnlike() {
+            var id = document.querySelector('#id_usuario').innerText;
+            var iduser = document.querySelector('#id_userlogueado').innerText;
+            console.log(id);
+            console.log(iduser);
+            // window.location = 'guardar_like.php';
+            window.location = `guardar_like.php?id=${id}?iduser=${iduser}`;
+            
         }
     </script>
 
