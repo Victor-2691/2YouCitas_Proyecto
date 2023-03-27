@@ -30,6 +30,10 @@
         line-height: 2;
         max-width: 60rem;
     }
+
+    #nombre_usuario{
+        color: $blanco;
+    }
 }
 
 .header_interno {
@@ -40,13 +44,11 @@
 }
 
 .header_movil {
-    display: inline;
-    display: flex;
-
+    display: block;
+    // margin-bottom: 1rem;
     .btntema {
-        width: 2.5rem;
-        margin-top: 1rem;
-        margin-bottom: 1.5rem;
+       
+        height: 20px;
         // Filter permite crear efectos invierte el color aplicado
         filter: invert(100%);
 
@@ -57,11 +59,18 @@
 
     img {
         height: 60px;
+       
     }
 
     @include tablet {
         display: none;
     }
+}
+
+.logo_movil{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .menu-fixed {

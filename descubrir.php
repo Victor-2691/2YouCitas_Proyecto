@@ -51,29 +51,60 @@ endforeach;
 <main class="contenedor_descrubrir">
 
     <p id="id_usuario" hidden><?php echo $idCliente ?></p>
-    
+
     <div class="card">
         <div class="content">
             <h2> <?php echo $nombre ?> <span class="edad"> <?php echo $edad ?> Años</span> </h2>
 
             <p>A 8 Kilómetros de distancia</p>
-            <div class="btn_contenedor">
+            <!-- <form> -->
+            <div class="btn_contenedor_descubrir">
+                <!-- <div class="divbtn"> -->
+                    <button class="btn_descrubrir atras">
+                        <!-- <img src="build/img/atras.svg" alt="icono"> -->
+                    </button>
+
+
+                <!-- </div>
+                <div class="divbtn"> -->
+                    <button class="btn_descrubrir nomegusta">
+                        <!-- <img src="build/img/nomegusta.svg" alt="icono"> -->
+                    </button>
+                <!-- </div> -->
+
+                <!-- <div class="divbtn"> -->
+                    <button class="btn_descrubrir megusta">
+                        <!-- <img src="build/img/megusta.svg" alt="icono"> -->
+                    </button>
+                <!-- </div> -->
+                <!-- <div class="divbtn"> -->
+                    <button class="btn_descrubrir suspiro">
+                        <!-- <img src="build/img/suspiro.svg" alt="icono"> -->
+                    </button>
+                <!-- </div> -->
+
+                <!-- <div class="divbtn"> -->
+                    <button onclick="btnperfil()" class="btn_descrubrir perfil_descubrir">
+                        <!-- <img src="build/img/perfil.svg" alt="icono"> -->
+                    </button>
+                <!-- </div> -->
+
+            </div>
+
             <!-- Botón de "like" -->
-
             <!-- form para llevar a otros links los botones -->
-            <form method="post" action="descubrir.php">
+            <!-- <form method="post" action="descubrir.php">
                 <button class="like-button" data-perfil-id="<?php echo $idCliente; ?>" >Like</button>
-
-                <button class="btn_descrubir"><i class="fa-solid fa-rotate-left fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; " ></i> </button>
+                <button class="btn_descrubir"><i class="fa-solid fa-thumbs-up"></i> </button>
                 <button class="btn_descrubir"><i class="fa-sharp fa-solid fa-circle-xmark fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
                 <button class="btn_descrubir"><i class="fa-solid fa-thumbs-up fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
                 <button class="btn_descrubir"><i class="fa-solid fa-heart fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
                 <button class="btn_descrubir"><i class="fa-solid fa-address-card fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
-            </form> 
+            </form>  -->
 
-            </div>
-            <button class="" onclick="btnperfil()"><i class="fa-solid fa-address-card fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
         </div>
+        <!-- <button class="" onclick="btnperfil()"><i class="fa-solid fa-address-card fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button> -->
+    </div>
     </div>
 
     <div>

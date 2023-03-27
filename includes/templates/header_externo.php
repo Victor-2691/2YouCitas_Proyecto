@@ -24,13 +24,12 @@ So es true mostramos el header inicio que tiene la imagen -->
                 </div>
 
                 <div class="derecha">
-                    <img class="dark-mode-boton" src="build/img/dark-mode.svg">
+                <img class="dark-mode-boton" src="build/img/dark-mode.svg">
                     <img class="dark-mode-boton day" src="build/img/daymode.svg">
                     <nav class="navegacion">
                         <a href="index.php">Inicio</a>
                         <a href="inicio_sesion.php">Iniciar Sesión</a>
                         <a href="registro.php">Registrarse</a>
-                       
                     </nav>
                 </div>
 

@@ -10,15 +10,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     desactivarenlaces();
     animacion();
+    darkmode2();
+      
 
-    console.log("Hola mundo");
+
 
     // btnperfil();
 });
 
-function darkMode() {
     //    Leyendo las preferencias del sistema para ver si tiene modo oscuro o claro
     const prefiereDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+
+function darkMode() {
+
 
     //  console.log(prefiereDarkMode.matches);
    
@@ -27,10 +31,12 @@ function darkMode() {
       document.body.classList.add('dark-mode');
       document.querySelector('.dark-mode-boton').style.display = '';
       document.querySelector('.day').style.display = 'none';
+
     } else {
         document.body.classList.remove('dark-mode');
         document.querySelector('.dark-mode-boton').style.display = 'none';
         document.querySelector('.day').style.display = '';
+
     }
 
     prefiereDarkMode.addEventListener('change', function() {
@@ -38,10 +44,12 @@ function darkMode() {
             document.body.classList.add('dark-mode');
             document.querySelector('.dark-mode-boton').style.display = '';
             document.querySelector('.day').style.display = 'none';
+       
         } else {
           document.body.classList.remove('dark-mode');
           document.querySelector('.dark-mode-boton').style.display = 'none';
           document.querySelector('.day').style.display = '';
+   
         }
     });
 
@@ -50,6 +58,7 @@ function darkMode() {
         document.body.classList.toggle('dark-mode');
         document.querySelector('.dark-mode-boton').style.display = 'none';
         document.querySelector('.day').style.display = '';
+ 
       });
 
       const botonDayMode = document.querySelector('.day');
@@ -59,8 +68,37 @@ function darkMode() {
           document.querySelector('.day').style.display = 'none';
         });
 
+}
+
+function darkmode2(){
+
+  if(prefiereDarkMode.matches) {
+    document.body.classList.add('dark-mode');
+    document.querySelector('.dark-mode-boton2').style.display = '';
+    document.querySelector('.day2').style.display = 'none';
+
+  } else {
+      document.body.classList.remove('dark-mode');
+      document.querySelector('.dark-mode-boton2').style.display = 'none';
+      document.querySelector('.day2').style.display = '';
+
+  }
 
 
+  const botonDarkMode = document.querySelector('.dark-mode-boton2');
+  botonDarkMode.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      document.querySelector('.dark-mode-boton2').style.display = 'none';
+      document.querySelector('.day2').style.display = '';
+
+    });
+
+    const botonDayMode = document.querySelector('.day2');
+    botonDayMode.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        document.querySelector('.dark-mode-boton2').style.display = '';
+        document.querySelector('.day2').style.display = 'none';
+      });
 }
 
 // CUANDO ESTE CARGADO EL DOCUMENTO CARGADO SE EJECUTA

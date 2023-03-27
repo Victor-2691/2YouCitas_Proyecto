@@ -12,7 +12,6 @@ foreach ($query  as $key => $opciones) :
     $idcliente = $opciones['id_cliente'];
     $nombre = $opciones['nombre'];
 endforeach;
-
 $_SESSION['idcliente'] = $idcliente;
 $_SESSION['nombre'] = $nombre;
 $nombreusuario = $_SESSION['nombre'];
@@ -20,7 +19,7 @@ $nombreusuario = $_SESSION['nombre'];
 
 if (isset($_SESSION['nombredelusuario'])) {
     $usuarioingresado = $_SESSION['nombredelusuario'];
-    //echo "<h1>Bienvanido: $usuarioingresado </h1>";
+    // echo "<h1>Bienvanido: $usuarioingresado </h1>";
 } else {
     header('location: inicio_sesion.php');
 }
@@ -37,7 +36,9 @@ if (isset($_SESSION['nombredelusuario'])) {
     <title>2 YouCitas</title>
     <link rel="stylesheet" href="build/css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script src="https://kit.fontawesome.com/474eae7f54.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/474eae7f54.js" crossorigin="anonymous"></script> -->
+<script src="https://kit.fontawesome.com/c7e48fff88.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -49,21 +50,24 @@ So es true mostramos el header inicio que tiene la imagen -->
                 <a class="animate__animated animate__rubberBand" href="index.php">
                     <img class="imgloco" src="build/img/Logo2Youcitas_Sinfondo.svg" alt="Logotipo 2YouCitas">
                 </a>
-                
+
                 <div hidden class="mobile-menu">
-                   
+
                 </div>
-               
+
                 <div class="derecha">
-                    <img class="dark-mode-boton" src="build/img/dark-mode.svg">
-                    <img class="dark-mode-boton day btntema" src="build/img/daymode.svg">
                     <nav class="navegacion ">
                         <a href="descubrir.php">Descubrir</a>
                         <a href="mensajes.php">Mensajes</a>
                         <a href="actividad.php">Actividad</a>
                         <a href="perfil.php"> Perfil</a>
-                        <a href="#"><?php echo "$nombreusuario"; ?></a>
-                        <a href="salir.php">Salir</a>
+                        <img class="dark-mode-boton" src="build/img/dark-mode.svg">
+                        <img class="dark-mode-boton day btntema" src="build/img/daymode.svg">
+                        <p id="nombre_usuario"> <?php echo "$nombreusuario"; ?> </p>
+                        <a href="salir.php">
+                            <img class="iconos35f" src="build/img/cerrar-sesion.png" />
+                        </a>
+
                     </nav>
                 </div>
 
@@ -72,14 +76,9 @@ So es true mostramos el header inicio que tiene la imagen -->
 
         <div class="header_movil">
             <div class="logo_movil">
-                <img src="build/img/2youcitasletras.svg" alt="Logotipo 2YouCitas">
-                <img class="dark-mode-boton btntema" src="build/img/dark-mode.svg">
-                <img class="dark-mode-boton day btntema" src="build/img/daymode.svg">
+                  <img src="build/img/2youcitasletras.svg" alt="Logotipo 2YouCitas">
+                    <img class="dark-mode-boton2 btntema barramovil" src="build/img/dark-mode.svg">
+                    <img class="dark-mode-boton2 day2 btntema barramovil" src="build/img/daymode.svg">
             </div>
-
-            
-
-
-
         </div>
     </header>

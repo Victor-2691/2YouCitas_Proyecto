@@ -67,7 +67,9 @@ incluirTempleate('header_externo');
         <div class="perfil-ejemplo">
             <h2>Ana Linares Prada</h2>
             <p>Hola, me encanta conocer lugares nuevos y la fotografia</p>
-            <button class="boton-negro" type="button"> Ver Perfil</button>
+            <button class="boton-negro" type="button" onclick="location='registro.php'">
+     
+            Ver Perfil</button>
 
         </div>
     </div>
@@ -76,7 +78,7 @@ incluirTempleate('header_externo');
 
 
 
-<section class="suspiro">
+<section class="suspiros">
     <h1>Características Únicas</h1>
     <p>Descrube que nos hace diferentes </p>
     <div class="suspiro_contenidos">
@@ -127,5 +129,5 @@ incluirTempleate('header_externo');
 
 <!-- Se arma como un rompecabezas el fin del HTML esta en el footer -->
 <?php
-incluirTempleate('footer');
+incluirTempleate('footer_externo');
 ?>

@@ -571,5 +571,5 @@ incluirTempleate('header_externo');
 
 <!-- Se arma como un rompecabezas el fin del HTML esta en el footer -->
 <?php
-incluirTempleate('footer');
+incluirTempleate('footer_externo');
 ?>
