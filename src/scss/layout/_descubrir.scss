@@ -12,7 +12,8 @@
     }
 
     @include tablet {
-        width: 80%;
+        width: 85%;
+       
     }
 }
 
@@ -22,8 +23,6 @@
     position: relative;
     // width: 100px;
     height: 400px;
-    align-items: center;
-    justify-content: center;
     border-radius: 5px;
     // background: url("../img/login5.jpg");
     background-size: cover;
@@ -33,8 +32,9 @@
 
     @include tablet {
         margin: auto;
-        width: 400px;
-        height: 550px;
+        width: 600px;
+        height: 680px;
+        margin-top: 8rem;
         margin-bottom: 8rem;
     }
 }

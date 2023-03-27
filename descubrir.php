@@ -59,8 +59,7 @@ if(isset($_SESSION['idcliente'])){
 
 <main class="contenedor_descrubrir">
 
-    <p id="id_usuario" ><?php echo $idCliente ?></p>
-    <p id="id_userlogueado" ><?php echo $sessionid ?></p>
+    <p id="id_usuario" hidden><?php echo $idCliente ?></p>
     <h1>Descubrir</h1>
 
 
@@ -102,6 +101,10 @@ if(isset($_SESSION['idcliente'])){
             <button class="" onclick="btnlike()">like </button>
             <button class="" onclick="btnperfil()"><i class="fa-solid fa-address-card fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
         </div>
+    </div>
+
+    <div>
+        <h1 hidden></h1>
     </div>
 
     <style>

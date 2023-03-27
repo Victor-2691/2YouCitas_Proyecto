@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     desactivarenlaces();
     animacion();
 
+    console.log("Hola mundo");
+
     // btnperfil();
 });
 
@@ -18,27 +20,47 @@ function darkMode() {
     //    Leyendo las preferencias del sistema para ver si tiene modo oscuro o claro
     const prefiereDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
 
-    // console.log(prefiereDarkMode.matches);
+    //  console.log(prefiereDarkMode.matches);
    
    // console.log(prefiereDarkMode.matches);
     if(prefiereDarkMode.matches) {
       document.body.classList.add('dark-mode');
+      document.querySelector('.dark-mode-boton').style.display = '';
+      document.querySelector('.day').style.display = 'none';
     } else {
         document.body.classList.remove('dark-mode');
+        document.querySelector('.dark-mode-boton').style.display = 'none';
+        document.querySelector('.day').style.display = '';
     }
 
     prefiereDarkMode.addEventListener('change', function() {
         if(prefiereDarkMode.matches) {
             document.body.classList.add('dark-mode');
+            document.querySelector('.dark-mode-boton').style.display = '';
+            document.querySelector('.day').style.display = 'none';
         } else {
           document.body.classList.remove('dark-mode');
+          document.querySelector('.dark-mode-boton').style.display = 'none';
+          document.querySelector('.day').style.display = '';
         }
     });
 
     const botonDarkMode = document.querySelector('.dark-mode-boton');
     botonDarkMode.addEventListener('click', function() {
         document.body.classList.toggle('dark-mode');
-    });
+        document.querySelector('.dark-mode-boton').style.display = 'none';
+        document.querySelector('.day').style.display = '';
+      });
+
+      const botonDayMode = document.querySelector('.day');
+      botonDayMode.addEventListener('click', function() {
+          document.body.classList.toggle('dark-mode');
+          document.querySelector('.dark-mode-boton').style.display = '';
+          document.querySelector('.day').style.display = 'none';
+        });
+
+
+
 }
 
 // CUANDO ESTE CARGADO EL DOCUMENTO CARGADO SE EJECUTA
