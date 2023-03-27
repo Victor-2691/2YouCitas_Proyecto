@@ -42,10 +42,19 @@ endforeach;
 
 ?>
 
+
+
 <?php
 //para los likes
+if(isset($_SESSION['idcliente'])){
+    $sessionid = $_SESSION['idcliente'];
+    //echo "<h1>Bienvanido: $sessionid </h1>";
+}
 
 ?>
+
+
+
 
 
 <main class="contenedor_descrubrir">
@@ -103,6 +112,7 @@ endforeach;
             </form>  -->
 
         </div>
+            <button class="" onclick="btnlike()">like </button>
         <!-- <button class="" onclick="btnperfil()"><i class="fa-solid fa-address-card fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button> -->
     </div>
     </div>
@@ -124,6 +134,17 @@ endforeach;
             console.log(id);
             // window.location = 'perfilusuariodescubrir.php';
             window.location = `perfilusuariodescubrir.php?id=${id}`;
+        }
+    </script>
+        <script type="text/javascript">
+        function btnlike() {
+            var id = document.querySelector('#id_usuario').innerText;
+            var iduser = document.querySelector('#id_userlogueado').innerText;
+            console.log(id);
+            console.log(iduser);
+            // window.location = 'guardar_like.php';
+            window.location = `guardar_like.php?id=${id}?iduser=${iduser}`;
+            
         }
     </script>
 

@@ -29,7 +29,7 @@ include_once 'db.php';
                         <!--<button class="btn" type="button" onclick="location.href='descubrir.php'">Iniciar Sesion</button> -->
                     </form>
                     <p class="small">
-                        Registrarse <a href="#"><span class="txt-primary">Aqui</span></a>
+                        Registrarse <a href="registro.php"><span class="txt-primary">Aqui</span></a>
                     </p>
                 </div>
             </div>

@@ -15,6 +15,9 @@ endforeach;
 $_SESSION['idcliente'] = $idcliente;
 $_SESSION['nombre'] = $nombre;
 $nombreusuario = $_SESSION['nombre'];
+$sessionid = $_SESSION['idcliente'];
+
+
 
 
 if (isset($_SESSION['nombredelusuario'])) {
