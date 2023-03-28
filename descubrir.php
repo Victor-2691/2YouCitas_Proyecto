@@ -40,11 +40,6 @@ foreach ($ejecutar as $key => $opciones) :
     $imagen =  $opciones['imagen'];
 endforeach;
 
-?>
-
-
-
-<?php
 //para los likes
 if(isset($_SESSION['idcliente'])){
     $sessionid = $_SESSION['idcliente'];
@@ -53,14 +48,14 @@ if(isset($_SESSION['idcliente'])){
 
 ?>
 
-
-
-
+<head>
+<script src="./src/js/likes.js"></script>
+</head>
 
 <main class="contenedor_descrubrir">
 
     <p id="id_usuario" hidden><?php echo $idCliente ?></p>
-
+    
     <div class="card">
         <div class="content">
             <h2> <?php echo $nombre ?> <span class="edad"> <?php echo $edad ?> Años</span> </h2>
@@ -76,13 +71,13 @@ if(isset($_SESSION['idcliente'])){
 
                 <!-- </div>
                 <div class="divbtn"> -->
-                    <button class="btn_descrubrir nomegusta">
+                    <button class="btn_descrubrir nomegusta" data-perfil-id="<?php echo $idCliente; ?>" data-usuario-id="<?php echo $sessionid; ?>">>
                         <!-- <img src="build/img/nomegusta.svg" alt="icono"> -->
                     </button>
                 <!-- </div> -->
 
                 <!-- <div class="divbtn"> -->
-                    <button class="btn_descrubrir megusta">
+                    <button onclick="btnlike()" class="btn_descrubrir megusta">
                         <!-- <img src="build/img/megusta.svg" alt="icono"> -->
                     </button>
                 <!-- </div> -->
@@ -103,7 +98,7 @@ if(isset($_SESSION['idcliente'])){
             <!-- Botón de "like" -->
             <!-- form para llevar a otros links los botones -->
             <!-- <form method="post" action="descubrir.php">
-                <button class="like-button" data-perfil-id="<?php echo $idCliente; ?>" >Like</button>
+                <button class="like-button" data-perfil-id="<?php //echo $idCliente; ?>" >Like</button>
                 <button class="btn_descrubir"><i class="fa-solid fa-thumbs-up"></i> </button>
                 <button class="btn_descrubir"><i class="fa-sharp fa-solid fa-circle-xmark fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
                 <button class="btn_descrubir"><i class="fa-solid fa-thumbs-up fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
@@ -112,7 +107,6 @@ if(isset($_SESSION['idcliente'])){
             </form>  -->
 
         </div>
-            <button class="" onclick="btnlike()">like </button>
         <!-- <button class="" onclick="btnperfil()"><i class="fa-solid fa-address-card fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button> -->
     </div>
     </div>
@@ -136,7 +130,7 @@ if(isset($_SESSION['idcliente'])){
             window.location = `perfilusuariodescubrir.php?id=${id}`;
         }
     </script>
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
         function btnlike() {
             var id = document.querySelector('#id_usuario').innerText;
             var iduser = document.querySelector('#id_userlogueado').innerText;
@@ -146,7 +140,7 @@ if(isset($_SESSION['idcliente'])){
             window.location = `guardar_like.php?id=${id}?iduser=${iduser}`;
             
         }
-    </script>
+    </script> -->
 
 
 </main>
