@@ -73,14 +73,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body >
+   
+    <div class="contenedor_formulario_perfil">
     <div class="icono_formulario1">
         <a href="descubrir.php">
             <img class="iconos25black" src="https://img.icons8.com/ios-filled/50/null/delete-sign--v1.png" />
         </a>
 
-
     </div>
-    <div class="contenedor_formulario_perfil">
         <div class="cotenedor_barra">
             <div class="progress">
                 <div class="progress-bar" style="width:25%;">
