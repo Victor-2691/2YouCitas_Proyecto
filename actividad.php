@@ -29,18 +29,18 @@ foreach ($ejecutar as $key => $opciones) :
 endforeach;
 
 ?>
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./actividad.css"> 
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="./src/js/actividad.js"></script>
-	<title>Document</title>
+	 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> 
+	<script src="./src/js/actividad.js"></script> 
+	 <title>Document</title>
 </head>
-<body>
+<body> 
 	<div class="wrap">
 		<ul class="tabs">
 			<li><a href="#tab1"><span class="fa fa-home"></span><span class="tab-text">Me gusto</span></a></li>
@@ -116,13 +116,18 @@ endforeach;
             </article>
 		</div>
 	</div>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
                 function btnperfil() {
                     var id = document.querySelector('#id_usuario').innerText;
                     console.log(id);
                     // window.location = 'perfilusuariodescubrir.php';
                     window.location = `perfilusuariodescubrir.php?id=${id}`;
                 }
-            </script>
-</body>
-</html>
+            </script> -->
+<!-- </body>
+</html> -->
+
+
+<?php
+incluirTempleate('footer');
+?>

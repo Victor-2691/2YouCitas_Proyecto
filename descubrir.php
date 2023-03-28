@@ -80,18 +80,18 @@ if(isset($_SESSION['idcliente'])){
 
                 <!-- </div>
                 <div class="divbtn"> -->
-                    <button class="btn_descrubrir nomegusta" data-perfil-id="<?php echo $idCliente; ?>" data-usuario-id="<?php echo $sessionid; ?>">>
+                    <button onclick="btndescrubrir()" class="btn_descrubrir nomegusta" data-perfil-id="<?php echo $idCliente; ?>" data-usuario-id="<?php echo $sessionid; ?>">>
                         <!-- <img src="build/img/nomegusta.svg" alt="icono"> -->
                     </button>
                 <!-- </div> -->
 
                 <!-- <div class="divbtn"> -->
-                    <button onclick="btnlike()" class="btn_descrubrir megusta">
+                    <button onclick="btndescrubrir()" class="btn_descrubrir megusta">
                         <!-- <img src="build/img/megusta.svg" alt="icono"> -->
                     </button>
                 <!-- </div> -->
                 <!-- <div class="divbtn"> -->
-                    <button class="btn_descrubrir suspiro">
+                    <button onclick="btndescrubrir()" class="btn_descrubrir suspiro">
                         <!-- <img src="build/img/suspiro.svg" alt="icono"> -->
                     </button>
                 <!-- </div> -->
@@ -139,6 +139,14 @@ if(isset($_SESSION['idcliente'])){
             window.location = `perfilusuariodescubrir.php?id=${id}`;
         }
     </script>
+
+<script type="text/javascript">
+        function btndescrubrir() {
+            window.location = 'descubrir.php';
+        }
+    </script>
+
+
         <script type="text/javascript">
         function btnlike() {
             var id = document.querySelector('#id_usuario').innerText;
@@ -149,7 +157,7 @@ if(isset($_SESSION['idcliente'])){
             window.location = `guardar_like.php?id=${id}?iduser=${iduser}`;
             
         }
-    </script> -->
+    </script>
 
 
 </main>
