@@ -40,6 +40,11 @@ foreach ($ejecutar as $key => $opciones) :
     $imagen =  $opciones['imagen'];
 endforeach;
 
+?>
+
+
+
+<?php
 //para los likes
 if(isset($_SESSION['idcliente'])){
     $sessionid = $_SESSION['idcliente'];
@@ -48,9 +53,9 @@ if(isset($_SESSION['idcliente'])){
 
 ?>
 
-<head>
-<script src="./src/js/likes.js"></script>
-</head>
+
+
+
 
 <main class="contenedor_descrubrir">
 
@@ -130,7 +135,7 @@ if(isset($_SESSION['idcliente'])){
             window.location = `perfilusuariodescubrir.php?id=${id}`;
         }
     </script>
-        <!-- <script type="text/javascript">
+        <script type="text/javascript">
         function btnlike() {
             var id = document.querySelector('#id_usuario').innerText;
             var iduser = document.querySelector('#id_userlogueado').innerText;

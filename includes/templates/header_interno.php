@@ -40,11 +40,11 @@ if (isset($_SESSION['nombredelusuario'])) {
     <link rel="stylesheet" href="build/css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- <script src="https://kit.fontawesome.com/474eae7f54.js" crossorigin="anonymous"></script> -->
-<script src="https://kit.fontawesome.com/c7e48fff88.js" crossorigin="anonymous"></script>
+
 
 </head>
 
-<body>
+<body >
     <!-- Para solo mostrar el header en la pagina de inicio
 So es true mostramos el header inicio que tiene la imagen -->
     <header class="header">
