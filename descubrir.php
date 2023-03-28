@@ -19,11 +19,15 @@ $db = conectarBD();
 <?php
 
 $consulta = "
-  SELECT  CI.id_cliente, CI.nombre, CI.primer_apellido, CI.segundo_apellido,
+SELECT  CI.id_cliente, CI.nombre, CI.primer_apellido, CI.segundo_apellido,
 CI.edad,CI.descripcion, 
 sz.nombre_signo, GP.nombre_genero
  FROM Clientes_Externos CI JOIN signos_zodiaco sz ON
-sz.id_signo = CI.id_genero_signozodiaco JOIN generos_pertenece GP ON GP.id_genero = CI.id_genero_pertenece ORDER BY rand() LIMIT 1;";
+sz.id_signo = CI.id_genero_signozodiaco 
+JOIN generos_pertenece GP ON GP.id_genero = CI.id_genero_pertenece 
+JOIN Usuarios_Clientes_Externo ON CI.id_cliente = Usuarios_Clientes_Externo.id_cliente
+WHERE Usuarios_Clientes_Externo.Estado = 0
+ORDER BY rand() LIMIT 1;";
 $ejecutar = mysqli_query($db, $consulta);
 foreach ($ejecutar as $key => $opciones) :
     $idCliente =  $opciones['id_cliente'];
@@ -106,7 +110,7 @@ if(isset($_SESSION['idcliente'])){
             </form>  -->
 
         </div>
-            <button class="" onclick="btnlike()">like </button>
+            <!-- <button class="" onclick="btnlike()">like </button> -->
         <!-- <button class="" onclick="btnperfil()"><i class="fa-solid fa-address-card fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button> -->
     </div>
     </div>

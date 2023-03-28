@@ -2,7 +2,12 @@
     width: 95%;
     max-width: 120rem;
     margin: 0 auto;
-    
+    @include tablet {
+      width: 45%;
+      margin-top: 5rem;
+      border: 3px solid $principal;
+      padding: 4rem;
+  }
 }
 
 .cotenedor_barra{

@@ -16,11 +16,11 @@ incluirTempleate('header_externo');
 <main class="contenedor">
 
 <section class="s123">
-    <h2 class="">¿Cómo Funciona?</h2>
-    <h3 class="">Sigue los pasos</h3>
+    <h2  class="">¿Cómo Funciona?</h2>
+    <h3  class="">Sigue los pasos</h3>
     <div class="s123_contenedor">
         <div class="s123_contenido">
-            <div id="centrar_cuadro">
+            <div  data-aos="fade-up" data-aos-duration="1500"  id="centrar_cuadro">
                 <div class="s123_cuadro">
                     <p class="num_cuadro">1</p>
                 </div>
@@ -29,7 +29,7 @@ incluirTempleate('header_externo');
 
             </div>
 
-            <div id="centrar_cuadro">
+            <div id="centrar_cuadro" data-aos="fade-down"  data-aos-easing="linear"  data-aos-duration="1500"> 
                 <div class="s123_cuadro">
                     <p class="num_cuadro">2</p>
                 </div>
@@ -39,7 +39,7 @@ incluirTempleate('header_externo');
 
             </div>
 
-            <div id="centrar_cuadro">
+            <div data-aos="fade-right" data-aos-duration="1500"     data-aos-offset="300"     data-aos-easing="ease-in-sine"  id="centrar_cuadro">
                 <div class="s123_cuadro">
                     <p class="num_cuadro">3</p>
                 </div>
@@ -61,7 +61,7 @@ incluirTempleate('header_externo');
 
         <div class="perfil-imagen">
             <h1>Visualiza tu perfil</h1>
-            <img src="build/img/ejemploperfil.jpg" alt="imagen-perfil">
+            <img data-aos-duration="1500" data-aos="zoom-in-up"src="build/img/ejemploperfil.jpg" alt="imagen-perfil">
         </div>
 
         <div class="perfil-ejemplo">
@@ -95,7 +95,7 @@ incluirTempleate('header_externo');
         <!-- end normal -->
 
         <!-- normal -->
-        <div class=" suspiro_contenido ih-item circle effect2  bottom_to_top">
+        <div class=" suspiro_contenido ih-item circle effect6 scale_up">
             <a id="preventD" href="#">
                 <div class="img"><img src="build/img/LogoSuspiro.svg" alt="img"></div>
                 <div class="info">

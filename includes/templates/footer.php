@@ -21,7 +21,7 @@
     </div>
 
     <div class="contenedor_footer_movil">
-        <a><img class="iconos25" src="https://img.icons8.com/ios-glyphs/30/000000/search-client.png"/></a>
+        <a href="descubrir.php"><img class="iconos25" src="https://img.icons8.com/ios-glyphs/30/000000/search-client.png"/></a>
 
         <a> <img class="iconos25" src="https://img.icons8.com/ios/50/null/delivery-time--v2.png"/> </a>
 
@@ -29,11 +29,11 @@
         <img class="iconos25" src="https://img.icons8.com/windows/64/null/chat-messages--v1.png"/>
         </a>
 
-        <a>
-        <img class="iconos25" src="https://img.icons8.com/ios-glyphs/30/null/camera--v1.png"/>
+        <a href="salir.php">
+        <img class="iconos25" src="build/img/cerrar-sesion.png"/>
         </a>
         
-        <a>
+        <a href="perfil.php">
         <img class="iconos25" src="https://img.icons8.com/ios-glyphs/30/null/user--v1.png"/>
         </a>
 

@@ -54,6 +54,8 @@ $db = conectarBD();
 </head>
 
 <body>
+  
+    <div class="contenedor_formulario_perfil4">
     <div class="icono_formulario1">
         <a href="formulario3.php">
             <img class="iconos25black" src="https://img.icons8.com/ios-filled/50/null/undo.png" />
@@ -61,7 +63,6 @@ $db = conectarBD();
 
 
     </div>
-    <div class="contenedor_formulario_perfil4">
         <div class="cotenedor_barra">
             <div class="progress">
                 <div class="progress-bar" style="width:100%;">

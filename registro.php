@@ -175,7 +175,7 @@ incluirTempleate('header_externo');
 
     <?php endforeach; ?>
 
-    <form class="formulario" method="POST" action="registro copy.php" enctype="multipart/form-data">
+    <form class="formulario" method="POST" action="registro.php" enctype="multipart/form-data">
         <fieldset class="fielsombra">
             <legend>Datos Generales</legend>
 
