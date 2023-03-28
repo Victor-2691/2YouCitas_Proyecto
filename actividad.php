@@ -43,16 +43,17 @@ endforeach;
 <body>
 	<div class="wrap">
 		<ul class="tabs">
-			<li><a href="#tab1"><span class="fa fa-home"></span><span class="tab-text">Le gusto</span></a></li>
-			<li><a href="#tab2"><span class="fa fa-group"></span><span class="tab-text">Me gusta</span></a></li>
+			<li><a href="#tab1"><span class="fa fa-home"></span><span class="tab-text">Me gusto</span></a></li>
+			<li><a href="#tab2"><span class="fa fa-group"></span><span class="tab-text">Le gusta</span></a></li>
 			<li><a href="#tab3"><span class="fa fa-briefcase"></span><span class="tab-text">Ya no me gusta</span></a></li>
 			<li><a href="#tab4"><span class="fa fa-bookmark"></span><span class="tab-text">Coincidencias</span></a></li>
 		</ul>
         <p id="id_usuario" hidden><?php echo $idCliente ?></p>
 
 		<div class="secciones">
-            <!-- ARTICULO LE GUSTO -->
+            <!-- ARTICULO ME GUSTO -->
 			<article id="tab1">
+                <h1>Me gusta</h1>
             <div class="card">
         <div class="content">
             <h2> <?php echo $nombre ?> <span class="edad"> <?php echo $edad ?> Años</span> </h2>
@@ -99,90 +100,15 @@ endforeach;
                 }
             </style>
 			</article>
-            <!-- ARTICULO ME GUSTA -->
+            <!-- ARTICULO LE GUSTA -->
 			<article id="tab2">
-            <div class="card">
-        <div class="content">
-            <h2> <?php echo $nombre ?> <span class="edad"> <?php echo $edad ?> Años</span> </h2>
+            <h1>Le gusta</h1>
 
-            <p>A 8 Kilómetros de distancia</p>
-            <!-- <form> -->
-            <div class="btn_contenedor_descubrir">
-                <!-- </div>
-                <div class="divbtn"> -->
-                    <button class="btn_descrubrir nomegusta">
-                        <!-- <img src="build/img/nomegusta.svg" alt="icono"> -->
-                    </button>
-                <!-- </div> -->
-
-                <!-- </div> -->
-                <!-- <div class="divbtn"> -->
-                    <button class="btn_descrubrir suspiro">
-                        <!-- <img src="build/img/suspiro.svg" alt="icono"> -->
-                    </button>
-                <!-- </div> -->
-
-                <!-- <div class="divbtn"> -->
-                    <button onclick="btnperfil()" class="btn_descrubrir perfil_descubrir">
-                        <!-- <img src="build/img/perfil.svg" alt="icono"> -->
-                    </button>
-                <!-- </div> -->
-
-            </div>
-           <!-- </form>  -->
-
-        </div>
-        
-    </div>
-            <style>
-                .card {
-                    background-image: url("data:image/<?php echo $extension ?>;base64,<?php echo base64_encode($imagen) ?>");
-
-                }
-            </style>
             </article>
             <!-- ARTICULO YA NO ME GUSTA -->
 			<article id="tab3">
-
-            <div class="card">
-        <div class="content">
-            <h2> <?php echo $nombre ?> <span class="edad"> <?php echo $edad ?> Años</span> </h2>
-
-            <p>A 8 Kilómetros de distancia</p>
-            <!-- <form> -->
-            <div class="btn_contenedor_descubrir">
-                <!-- </div>
-                <div class="divbtn"> -->
-                    <button class="btn_descrubrir nomegusta">
-                        <!-- <img src="build/img/nomegusta.svg" alt="icono"> -->
-                    </button>
-                <!-- </div> -->
-                <!-- <div class="divbtn"> -->
-                <button onclick="btnlike()" class="btn_descrubrir megusta">
-                        <!-- <img src="build/img/megusta.svg" alt="icono"> -->
-                    </button>
-                <!-- </div> -->
-
-                <!-- <div class="divbtn"> -->
-                    <button onclick="btnperfil()" class="btn_descrubrir perfil_descubrir">
-                        <!-- <img src="build/img/perfil.svg" alt="icono"> -->
-                    </button>
-                <!-- </div> -->
-
-
-
-            </div>
-           <!-- </form>  -->
-
-        </div>
-        
-    </div>
-            <style>
-                .card {
-                    background-image: url("data:image/<?php echo $extension ?>;base64,<?php echo base64_encode($imagen) ?>");
-
-                }
-            </style>
+            <h1>Ya No Me gusta</h1>
+            
             </article>
             <!-- ARTICULO COINCIDENCIAS -->
 			<article id="tab4">
