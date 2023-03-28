@@ -6,14 +6,13 @@ incluirTempleate('header_interno');
 require 'includes/config/database.php';
 $db = conectarBD();
 
+$idperfil = $_GET['id'];
+$idusuario = $_GET['iduser'];
 
-// $idperfil = $_GET['id'];
-// $idusuario = $_GET['iduser'];
+ // Preparar la consulta
+$sql = "INSERT INTO likes (id_cliente, id_usuario) VALUES ('$idperfil', '$idusuario')";
 
-// // Preparar la consulta
-// $sql = "INSERT INTO likes (id_cliente, id_usuario) VALUES ('$idperfil', '$idusuario')";
-
-// // Ejecutar la consulta
+// Ejecutar la consulta
 // if (mysqli_query($db, $sql)) {
 //     echo "Nuevo registro insertado con éxito";
 // } else {
@@ -40,16 +39,16 @@ $db = conectarBD();
 //       echo "Error: No se han proporcionado los parámetros necesarios.";
 //   }
 // }
-// $perfilId = $_POST['id_cliente'];
-// $usuarioId = $_POST['id_usuario'];
+$perfilId = $_POST['id_cliente'];
+$usuarioId = $_POST['id_usuario'];
 
-// $query = "INSERT INTO likes (id_cliente, id_usuario) VALUES ('$perfilId', '$usuarioId')";
+$query = "INSERT INTO likes (id_cliente, id_usuario) VALUES ('$perfilId', '$usuarioId')";
 
-// $resultado = mysqli_query($db, $query);
+$resultado = mysqli_query($db, $query);
 
-// if (!$resultado) {
-//   die("Error al guardar el like: " . mysqli_error($db));
-// }
+if (!$resultado) {
+  die("Error al guardar el like: " . mysqli_error($db));
+}
 
 
 ?>
