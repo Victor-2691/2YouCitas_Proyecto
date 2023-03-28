@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     desactivarenlaces();
     animacion();
     darkmode2();
+
+ 
       
 
 
@@ -58,7 +60,7 @@ function darkMode() {
         document.body.classList.toggle('dark-mode');
         document.querySelector('.dark-mode-boton').style.display = 'none';
         document.querySelector('.day').style.display = '';
- 
+    
       });
 
       const botonDayMode = document.querySelector('.day');
@@ -159,6 +161,7 @@ function animacion(){
         document.querySelectorAll('input[type=checkbox][role^=switch]')
       ).forEach((element) => new CheckboxSwitch(element));
 }
+
 
 
 // function btnperfil() {
