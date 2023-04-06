@@ -4,69 +4,82 @@ session_start();
 require 'includes/config/database.php';
 $db = conectarBD();
 
-
-// if (isset($_SESSION['nombredelusuario'])) {
-//     $usuarioingresado = $_SESSION['nombredelusuario'];
-//     //echo "<h1>Bienvanido: $usuarioingresado </h1>";
-// } else {
-//     header('location: inicio_sesion.php');
-// }
-// $idusuario =  $_GET['id'] ?? null;
-// $nombre = $_GET["nombre"] ?? null;
-// $generopertenece = $_GET["genero"] ?? null;
-// $descripcion = "";
+$errores = [];
 
 
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $signozodiaco = $_POST['signozodiaco'] ?? null;
-//     $descripcion = $_POST['descripcion'];
+if (isset($_SESSION['idcliente'])) {
+    $sessionid = $_SESSION['idcliente'];
+} else {
+    header('location: inicio_sesion.php');
+}
 
-//     if (!$signozodiaco) {
-//         $errores[] = "Debes seleccionar un signo del zodiaco (sobre ti)";
-//         echo "<script>alert('Debes seleccionar un signo'); </script>";
-//     }
-//     if (!$descripcion) {
-//         $errores[] = "Debes seleccionar un signo del zodiaco (sobre ti)";
-//         echo "<script>alert('La descripción es obligatoria'); </script>";
-//     }
+// Accedemos al evento post del formulario
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // echo "<pre>";
+    // var_dump($_POST['Femenino']);
+    // echo "<pre>";
+    // echo "<pre>";
+    // var_dump($_POST['NoBinario']);
+    // echo "<pre>";
 
-//     // if (strlen($descripcion) < 50) {
-//     //     $errores[] = "La descripción es obligatoria y debe tener al menos 50 caracteres (tu perfil)";
-//     //     echo "<script>alert('La descripción es obligatoria y debe tener al menos 50 caracteres); </script>";
-//     // }
+    $generobuscado =    $_POST['check_list_generobuscado'] ?? null;
+    $preferencias = $_POST['preferencias'] ?? null;
 
-//     // if (strlen($descripcion) > 300) {
-//     //     $errores[] = "El maximo para la descripción es de 300 caracteres)";
-//     //     echo "<script>alert('El maximo para la descripción es de 300 caracteres'); </script>";
-//     // }
-//     if (empty($errores)) {
+    if (!$generobuscado) {
+        $errores[] = "El genero buscado es obligatorio (que buscas)";
+        echo "<script>alert('El genero buscado es obligatorio '); </script>";
+    }
 
-//         // echo $idusuario,$nombre,$generopertenece,$descripcion; 
-//         // echo $idusuario,$nombre,$generopertenece,$descripcion; 
-//         // $consulta = 
-//         // "UPDATE Clientes_Externos
-//         // SET
-//         // nombre = '$nombre',
-//         // id_genero_pertenece = $generopertenece,
-//         // id_genero_signozodiaco = $signozodiaco,
-//         // descripcion = '$descripcion'
-//         // WHERE id_cliente = $idusuario";
-//         // $ejecutar = mysqli_query($db, $consulta);
+    if (!$preferencias) {
+        $errores[] = "El genero buscado es obligatorio (que buscas)";
+        echo "<script>alert('Debes seleccionar que te gustaria encontrar'); </script>";
+    }
 
-      
-//             // // echo "<script>alert('Se actualizo con exito'); </script>";
-            // header('Location: formulario4.php');
-       
-     
 
-       
-//         // header("Location:perfilusuariodescubrir.php?mensaje=estaesunaprueba&mensaje2=estaotromensaje");
+    if (empty($errores)) {
+        $consulta = "UPDATE Clientes_Externos
+        SET
+        id_genero_buscador = $generobuscado
+        WHERE id_cliente = $sessionid";
+        $ejecutar = mysqli_query($db, $consulta);
+        if ($ejecutar) {
 
-//         // $mensaje = $_GET['mensaje'];
-//         // <?php header("Location:perfilusuariodescubrir.php?id=$idCliente"
+            // Validamos si las preferencias es nueva o una actualizacion 
+            $consulta = "Select * from clientes_externos_x_preferencias where id_cliente = $sessionid";
+            $ejecutar = mysqli_query($db, $consulta);
+            $contador = mysqli_num_rows($ejecutar);
 
-//     }
-// }
+            if ($contador > 0) {
+                // Update 
+                $consulta2 = "UPDATE clientes_externos_x_preferencias
+                SET
+                id_preferencia = $preferencias
+                WHERE id_cliente = $sessionid";
+                $ejecutar2 = mysqli_query($db, $consulta2);
+
+                if ($ejecutar2) {
+                    echo "<script>window.location = 'formulario4.php' </script>";
+                } else {
+                    die(mysqli_error($db));
+                }
+            } else {
+                // Insert
+                $query4 = " INSERT INTO clientes_externos_x_preferencias(id_cliente,
+                id_preferencia)
+                 VALUES
+                 ($sessionid,$preferencias)";
+                $ejecutar3 = mysqli_query($db,  $query4);
+                if ($ejecutar3) {
+                    echo "<script>window.location = 'formulario4.php' </script>";
+                } else {
+                    die(mysqli_error($db));
+                }
+            }
+        } else {
+            die(mysqli_error($db));
+        }
+    }
+}
 
 ?>
 
@@ -85,13 +98,13 @@ $db = conectarBD();
 <body>
 
     <div class="contenedor_formulario_perfil3">
-    <div class="icono_formulario1">
-        <a href="formulario2.php">
-        <img class="iconos25black" src="https://img.icons8.com/ios-filled/50/null/undo.png"/>
-        </a>
-  
+        <div class="icono_formulario1">
+            <a href="formulario2.php">
+                <img class="iconos25black" src="https://img.icons8.com/ios-filled/50/null/undo.png" />
+            </a>
 
-    </div>
+
+        </div>
         <div class="cotenedor_barra">
             <div class="progress">
                 <div class="progress-bar" style="width:75%;">
@@ -99,7 +112,7 @@ $db = conectarBD();
                 </div>
             </div>
         </div>
-            <form class="formulario_interno" method="post" action="formulario4.php">
+        <form class="formulario_interno" method="post" action="formulario3.php">
             <label>¿A quien te gustaria cononocer?</label>
             <div class="forma-contacto">
                 <?php
@@ -129,14 +142,14 @@ $db = conectarBD();
                     <option value="<?php echo $opciones['id_preferencia'] ?>"><?php echo $opciones['nombre_categoria'] ?></option>
                 <?php endforeach ?>
             </select>
-           
+
 
 
             <div class="inpunt_boton">
-            <input  type="submit" value="Siguiente" class="boton-principal">
+                <input type="submit" value="Siguiente" class="boton-principal">
             </div>
         </form>
-   
+
 
 
 

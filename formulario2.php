@@ -12,59 +12,46 @@ if (isset($_SESSION['nombredelusuario'])) {
 } else {
     header('location: inicio_sesion.php');
 }
-$idusuario =  $_GET['id'] ?? null;
-$nombre = $_GET["nombre"] ?? null;
-$generopertenece = $_GET["genero"] ?? null;
+$sessionid = $_SESSION['idcliente'];
 $descripcion = "";
-
+$errores = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $signozodiaco = $_POST['signozodiaco'] ?? null;
-    $descripcion = $_POST['descripcion'];
+    $descripcion = $_POST['descripcion'] ?? null;
+
 
     if (!$signozodiaco) {
         $errores[] = "Debes seleccionar un signo del zodiaco (sobre ti)";
-        echo "<script>alert('Debes seleccionar un signo'); </script>";
-    }
-    if (!$descripcion) {
-        $errores[] = "Debes seleccionar un signo del zodiaco (sobre ti)";
-        echo "<script>alert('La descripción es obligatoria'); </script>";
+        echo "<script>alert('Debes seleccionar un signo del zodiaco'); </script>";
     }
 
-    // if (strlen($descripcion) < 50) {
-    //     $errores[] = "La descripción es obligatoria y debe tener al menos 50 caracteres (tu perfil)";
-    //     echo "<script>alert('La descripción es obligatoria y debe tener al menos 50 caracteres); </script>";
-    // }
+    if (strlen($descripcion) < 50) {
+        $errores[] = "La descripción es obligatoria y debe tener al menos 50 caracteres (tu perfil)";
+        echo "<script>alert('La descripción es obligatoria y debe tener al menos 50 caracteres'); </script>";
+    }
 
-    // if (strlen($descripcion) > 300) {
-    //     $errores[] = "El maximo para la descripción es de 300 caracteres)";
-    //     echo "<script>alert('El maximo para la descripción es de 300 caracteres'); </script>";
-    // }
+    if (strlen($descripcion) > 300) {
+        $errores[] = "El maximo para la descripción es de 300 caracteres)";
+        echo "<script>alert('El maximo para la descripción es de 300 caracteres'); </script>";
+    }
+
     if (empty($errores)) {
-
-        // echo $idusuario,$nombre,$generopertenece,$descripcion; 
-        // echo $idusuario,$nombre,$generopertenece,$descripcion; 
-        // $consulta = 
-        // "UPDATE Clientes_Externos
-        // SET
-        // nombre = '$nombre',
-        // id_genero_pertenece = $generopertenece,
-        // id_genero_signozodiaco = $signozodiaco,
-        // descripcion = '$descripcion'
-        // WHERE id_cliente = $idusuario";
-        // $ejecutar = mysqli_query($db, $consulta);
-
-      
-            // echo "<script>alert('Se actualizo con exito'); </script>";
-            // header('Location: formulario3.php');
-       
      
+        $consulta = "UPDATE Clientes_Externos
+          SET
+          descripcion = '$descripcion',
+          id_genero_signozodiaco = $signozodiaco
+          WHERE id_cliente = $sessionid";
+          $ejecutar = mysqli_query($db, $consulta);
 
-       
-        // header("Location:perfilusuariodescubrir.php?mensaje=estaesunaprueba&mensaje2=estaotromensaje");
-
-        // $mensaje = $_GET['mensaje'];
-        // <?php header("Location:perfilusuariodescubrir.php?id=$idCliente"
+          if($ejecutar){
+            echo "<script>window.location = 'formulario3.php' </script>";
+          }
+          else{
+            die(mysqli_error($db));
+          }
+          
 
     }
 }
@@ -98,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
         </div>
-            <form class="formulario_interno" method="post" action="formulario3.php">
+            <form class="formulario_interno" method="post" action="formulario2.php">
             <label for="nombre">¿Cual es tu signo del zodiaco?</label>
             <select name="signozodiaco" id="signo">
                 <option value="" disabled selected>-- Seleccione --</option>

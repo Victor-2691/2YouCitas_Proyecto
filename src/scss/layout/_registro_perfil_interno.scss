@@ -2,12 +2,14 @@
   width: 95%;
   max-width: 120rem;
   margin: 0 auto;
-
+  border: 2px solid $principal;
+  padding: 2rem;
+  margin-top: 2rem;
   @include tablet {
     width: 45%;
-    margin-top: 5rem;
+    margin-top: 3rem;
     border: 3px solid $principal;
-    padding: 4rem;
+    padding: 0 4rem 0 4rem;
 }
   
 }
@@ -260,7 +262,7 @@
 
 .icono_formulario1{
 display: flex;
-margin-left: 2rem;
+// margin-left: 2rem;
 margin-top: 1rem;
 
 }

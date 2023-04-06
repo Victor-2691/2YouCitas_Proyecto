@@ -60,10 +60,10 @@ include "functions.php";
         var elemento = document.getElementById("resultado");
         if (elemento.className == "") {
           elemento.className = resultado;
-          elemento.width = "600";
+          elemento.width = "150";
         }else {
           elemento.className = resultado;
-          elemento.width = "600";
+          elemento.width = "150";
         }
     }
     </script>
@@ -144,7 +144,7 @@ include "functions.php";
 
  
 <div style="float: left; clear: both; width: 600px; margin-left: 30%;">
-  <div id="resultado" class=""><img id="imgSalida" width="600" /></div>
+  <div id="resultado" class=""><img id="imgSalida" width="150" /></div>
 </div>
 
 <!--ESTE DIV ES PARA LA DESCRIPCION DE LA FOTO VER SI SE DEJA O NO-->
@@ -170,6 +170,9 @@ if (isset($_POST['submit'])) {
   if ($imagen_tipo == IMAGETYPE_PNG OR $imagen_tipo == IMAGETYPE_JPEG OR $imagen_tipo == IMAGETYPE_BMP) {
 
   $filtro = $db->real_escape_string($_POST['filter']);
+      echo "<pre>";
+    var_dump($_POST['filter']);
+    echo "<pre>";
   $descripcion = $db->real_escape_string($_POST['descripcion']);
 
     if(is_uploaded_file($_FILES['file-input']['tmp_name'])) { 

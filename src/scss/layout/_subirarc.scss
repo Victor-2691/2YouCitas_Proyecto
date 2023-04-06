@@ -213,8 +213,9 @@
   /* CAMBIAR RADIO POR IMAGEN */
   
   .imgcheck{
-      position:relative;
-      display: inline-block;
+      // position:relative;
+      // display: inline-block;
+      width: 50%;
   }
     .imgcheck label > input{ /* HIDE RADIO */
     visibility: hidden; /* Makes input not-clickable */
@@ -225,6 +226,6 @@
     border:2px solid transparent;
   }
   .imgcheck label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
-    border:2px solid #f00;
+    border:2px solid $principal;
   }
   

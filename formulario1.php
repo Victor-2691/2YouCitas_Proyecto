@@ -46,7 +46,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($errores)) {
 
-        header('Location: formulario2.php?id='.$sessionid. '&nombre='.$nombre. '&genero='.$generopertenece);
+          $consulta = "UPDATE Clientes_Externos
+          SET
+          nombre = '$nombre',
+          id_genero_pertenece = $generopertenece
+          WHERE id_cliente = $sessionid";
+          $ejecutar = mysqli_query($db, $consulta);
+
+          if($ejecutar){
+            
+            echo "<script>window.location = 'formulario2.php' </script>";
+          }
+          else{
+            die(mysqli_error($db));
+          }
+          
+
+        // header('Location: formulario2.php?id='.$sessionid. '&nombre='.$nombre. '&genero='.$generopertenece);
         // header("Location:perfilusuariodescubrir.php?mensaje=estaesunaprueba&mensaje2=estaotromensaje");
 
         // $mensaje = $_GET['mensaje'];
@@ -73,6 +89,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body >
+
+
    
     <div class="contenedor_formulario_perfil">
     <div class="icono_formulario1">

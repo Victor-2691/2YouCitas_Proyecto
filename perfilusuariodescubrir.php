@@ -78,7 +78,7 @@ $ejecutar2 = mysqli_query($db, $consulta2);
         </div>
 
         <div class="contenido_perfil_descrip">
-        <p> <? echo $descripcion?> </p>
+      
 
             <div class="perfil_nombre_distancia">
                 <h1 id="margin0"> <?php echo $nombre ?> - <span class="edad"> <?php echo $edad ?> Años</span> </h1>
