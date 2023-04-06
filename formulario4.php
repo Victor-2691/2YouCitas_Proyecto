@@ -68,10 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $tipo = $imagen['type'];
             // Leemos el contenido del archivo temporal en binario
             $data = addslashes(file_get_contents($imagen_temporal));
-            echo "<pre>";
-            var_dump($imagen['filter']);
-            echo "<pre>";
-
+        
             $query5 = " INSERT INTO imagenes_clientes (id_cliente,
                         imagen_perfil,imagen,tipo_imagen)
                         VALUES
@@ -85,6 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 WHERE id_cliente = $sessionid" ;
                 $ejecutar = mysqli_query($db, $consulta);
                 if($ejecutar){
+          
                     echo "<script>window.location = 'descubrir.php' </script>";
                 }
 
