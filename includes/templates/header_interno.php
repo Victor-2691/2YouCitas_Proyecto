@@ -40,7 +40,7 @@ if (isset($_SESSION['nombredelusuario'])) {
     <link rel="stylesheet" href="build/css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- <script src="https://kit.fontawesome.com/474eae7f54.js" crossorigin="anonymous"></script> -->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 </head>
 

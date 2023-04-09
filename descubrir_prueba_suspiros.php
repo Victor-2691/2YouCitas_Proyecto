@@ -28,6 +28,15 @@ $ejecutar = mysqli_query($db, $consulta);
 $arregloasoc = mysqli_fetch_assoc($ejecutar);
 $generobuscado = $arregloasoc['id_genero_buscador'];
 $nombregenerobuscado = $arregloasoc['nombre_genero'];
+// echo "<pre>";
+// var_dump($generobuscado);
+// echo "<pre>";
+// echo "<pre>";
+// var_dump($nombregenerobuscado);
+// echo "<pre>";
+// echo "<pre>";
+// var_dump($sessionid);
+// echo "<pre>";
 
 switch ($generobuscado) {
         //   Busca hombres
@@ -45,7 +54,7 @@ switch ($generobuscado) {
         $ejecutar = mysqli_query($db, $consulta);
 
         foreach ($ejecutar as $key => $opciones) :
-            $idPerfil =  $opciones['id_cliente'];
+            $idCliente =  $opciones['id_cliente'];
             $nombre =  $opciones['nombre'];
             $edad =  $opciones['edad'];
             $extension = $opciones['tipo_imagen'];
@@ -67,14 +76,49 @@ switch ($generobuscado) {
         ORDER BY rand() LIMIT 1";
         $ejecutar = mysqli_query($db, $consulta);
         foreach ($ejecutar as $key => $opciones) :
-            $idPerfil =  $opciones['id_cliente'];
+            $idCliente =  $opciones['id_cliente'];
             $nombre =  $opciones['nombre'];
             $edad =  $opciones['edad'];
             $extension = $opciones['tipo_imagen'];
             $imagen =  $opciones['imagen'];
+        // echo "<pre>";
+        // var_dump($opciones);
+        // echo "<pre>";
         endforeach;
+        //         $arregloasoc2 = mysqli_fetch_all($ejecutar,MYSQLI_ASSOC);
+        //     //    echo "<pre>";
+        //     //         var_dump($arregloasoc2);
+        //     //         echo "<pre>";
+
+
+        // for($i=0; $i<18; $i++):
+        //     // echo "<pre>";
+        //     // var_dump($arregloasoc2[$i]);
+        //     // echo "<pre>";
+        //     echo "<pre>";
+        //     var_dump($arregloasoc2[$i]['nombre']);
+        //     echo "<pre>";
+
+        //     endfor;
+
+        // foreach ($arregloasoc2 as $key => $opciones) :
+        //     $idCliente =  $opciones['id_cliente'];
+        //     $nombre =  $opciones['nombre'];
+        //     $edad =  $opciones['edad'];
+        //     $extension = $opciones['tipo_imagen'];
+        //     $imagen =  $opciones['imagen'];
+        //     // echo "<pre>";
+        //     // var_dump($opciones);
+        //     // echo "<pre>";
+        //     echo "<pre>";
+        //     var_dump($edad);
+        //     echo "<pre>";
+        // endforeach;
+
+
 
         break;
+
         // Busca ambos
     case 3:
         $consulta = " SELECT Clientes_Externos.nombre, Clientes_Externos.edad,
@@ -110,48 +154,35 @@ switch ($generobuscado) {
             <h2> <?php echo $nombre ?> <span class="edad"> <?php echo $edad ?> Años</span> </h2>
 
             <p>A 8 Kilómetros de distancia</p>
-
+            <!-- <form> -->
             <div class="btn_contenedor_descubrir">
-                <!-- BTN ATRAS -->
+
                 <button class="btn_descrubrir atras">
                 </button>
 
-                <!-- BTN NO ME GUSTA -->
-                <button onclick="btndescrubrir()" class="btn_descrubrir nomegusta" data-perfil-id="<?php echo $idCliente; ?>" data-usuario-id="<?php echo $sessionid; ?>">>
+                <button onclick="btndescrubrir()" class="btn_descrubrir nomegusta">
                 </button>
 
-
-                <!-- BTN Me gusta -->
                 <button onclick="btndescrubrir()" class="btn_descrubrir megusta">
                 </button>
 
-
-                <!-- BTN Suspiro -->
                 <button onclick="insertasuspiro()" class="btn_descrubrir suspiro">
+
                 </button>
 
 
-                <!-- BTN Ver Pefil -->
+
                 <button onclick="btnperfil()" class="btn_descrubrir perfil_descubrir">
+
                 </button>
 
 
             </div>
 
-            <!-- Botón de "like" -->
-            <!-- form para llevar a otros links los botones -->
-            <!-- <form method="post" action="descubrir.php">
-                <button class="like-button" data-perfil-id="<?php //echo $idCliente; 
-                                                            ?>" >Like</button>
-                <button class="btn_descrubir"><i class="fa-solid fa-thumbs-up"></i> </button>
-                <button class="btn_descrubir"><i class="fa-sharp fa-solid fa-circle-xmark fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
-                <button class="btn_descrubir"><i class="fa-solid fa-thumbs-up fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
-                <button class="btn_descrubir"><i class="fa-solid fa-heart fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
-                <button class="btn_descrubir"><i class="fa-solid fa-address-card fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
-            </form>  -->
+
 
         </div>
-        <!-- <button class="" onclick="btnperfil()"><i class="fa-solid fa-address-card fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button> -->
+
     </div>
     </div>
 
@@ -177,7 +208,7 @@ switch ($generobuscado) {
 
     <script type="text/javascript">
         function btndescrubrir() {
-            location.reload();
+            window.location = 'descubrir.php';
         }
     </script>
 
@@ -194,7 +225,6 @@ switch ($generobuscado) {
         }
     </script>
 
-<!-- Funcion para insertar Suspiros -->
     <script>
         function insertasuspiro() {
             var id = document.querySelector('#id_usuario_perfil').innerText;
