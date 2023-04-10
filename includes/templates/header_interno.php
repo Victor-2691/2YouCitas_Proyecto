@@ -63,6 +63,7 @@ So es true mostramos el header inicio que tiene la imagen -->
                         <a href="descubrir.php">Descubrir</a>
                         <a href="mensajes.php">Mensajes</a>
                         <a href="actividad.php">Actividad</a>
+                        <a href="suspiros.php">Suspiros</a>
                         <a href="perfil.php"> Perfil</a>
                         <img class="dark-mode-boton" src="build/img/dark-mode.svg">
                         <img class="dark-mode-boton day btntema" src="build/img/daymode.svg">

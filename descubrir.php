@@ -26,6 +26,7 @@ Clientes_Externos.id_genero_buscador = generos_buscando.id_genero
  WHERE id_cliente = $sessionid";
 $ejecutar = mysqli_query($db, $consulta);
 $arregloasoc = mysqli_fetch_assoc($ejecutar);
+
 $generobuscado = $arregloasoc['id_genero_buscador'];
 $nombregenerobuscado = $arregloasoc['nombre_genero'];
 
@@ -222,7 +223,7 @@ switch ($generobuscado) {
                             text: 'Ya le habias dado suspiros a esta persona!',
                             showConfirmButton: false,
                         })
-                        setInterval("location.reload()", 2000);
+                        setInterval("location.reload()", 1000);
 
                     }
 
