@@ -26,7 +26,6 @@ Clientes_Externos.id_genero_buscador = generos_buscando.id_genero
  WHERE id_cliente = $sessionid";
 $ejecutar = mysqli_query($db, $consulta);
 $arregloasoc = mysqli_fetch_assoc($ejecutar);
-
 $generobuscado = $arregloasoc['id_genero_buscador'];
 $nombregenerobuscado = $arregloasoc['nombre_genero'];
 

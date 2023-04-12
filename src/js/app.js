@@ -184,6 +184,7 @@ function tabs() {
 
 
 
+
 // function btnperfil() {
 //   var id = document.querySelector('#id_usuario').innerText;
 //   console.log(id);
