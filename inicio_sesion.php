@@ -3,6 +3,7 @@ include_once 'db.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +11,9 @@ include_once 'db.php';
     <link rel="stylesheet" href="build/css/app.css">
     <title>Iniciar Sesion</title>
 </head>
+
 <body>
-    <section id="cine" class="bk p-80"> 
+    <section id="cine" class="bk p-80">
         <div class="container">
             <div class="cine-wrap">
                 <div class="cine-wrap-bk"></div>
@@ -36,9 +38,10 @@ include_once 'db.php';
         </div>
     </section>
 </body>
+
 </html>
 
-<?php 
+<?php
 
 session_start();
 if (isset($_SESSION['nombredelusuario'])) {
@@ -46,43 +49,54 @@ if (isset($_SESSION['nombredelusuario'])) {
 }
 
 
-            //este iniciar_sesion es el boton de la pagina
+//este iniciar_sesion es el boton de la pagina
 if (isset($_POST['iniciar_sesion'])) {
 
     $correo = $_POST['email'];
     $pass = $_POST['password'];
 
 
-    $query = mysqli_query($db,"SELECT * FROM Usuarios_Clientes_Externo WHERE correo_electronico = '".$correo."' AND contrasena = '".$pass."' ");
+    $query = mysqli_query($db, "SELECT * FROM Usuarios_Clientes_Externo WHERE correo_electronico = '" . $correo . "' AND contrasena = '" . $pass . "' ");
     $consulta = mysqli_fetch_assoc($query);
-
     //esta  variable es para contar las filas del query
-
-
     $nr = mysqli_num_rows($query);
 
- 
+
+
+    // Consulta para saber si el doble factor esta activado o desactivado
+    $consulta2 = "SELECT doblefactor_autenticacion FROM SA_Configuracion_Sitio WHERE ID_configuracion = 1";
+    $ejecutar2 = mysqli_query($db, $consulta2);
+    $arregloasoc = mysqli_fetch_assoc($ejecutar2);
+    $doblefactor = $arregloasoc['doblefactor_autenticacion'];
+
+
     //validar que no hayan 2 usuarios ingresando al mismo tiempo
     if (!isset($_SESSION['nombredelusuario'])) {
 
         if ($nr == 1) {
-            // Validar si ya lleno el perfil 0 ya esta lleno 1 esta pendiente
-            if($consulta['Estado'] == 1){
-                $_SESSION['nombredelusuario'] = $correo;
-                header("location: formulario1.php");
+            // Usuario y contra correctos
+            $EstadoPefil = $consulta['Estado'];
+            // Validamos si tiene activo el doble factor 
+            if ($doblefactor == 1) {
+                //    Si esta activo lo mandamos a la siguiente panatalla de validacion
+                header("Location:autenticacion.php?correousuario=$correo");
+            } else {
+                // Validar si ya lleno el perfil 0:Completo -  1:Pendiente
+                if ($consulta['Estado'] == 1) {
+                    // antes de pasar a la siguiente pagina consulta si el doble factor esta activado o desactivado
+                    // Si esta activado redirigo con el correo
+                    // Si esta desactivado redirigo a la pagina principal
+                    $_SESSION['nombredelusuario'] = $correo;
+                    header("location: formulario1.php");
+                } else {
+                    $_SESSION['nombredelusuario'] = $correo;
+                    header("location: descubrir.php");
+                }
             }
-
-            else{
-                $_SESSION['nombredelusuario'] = $correo;
-                header("location: descubrir.php");
-            }
-
-          
-        }elseif ($nr == 0) {
+        } elseif ($nr == 0) {
             echo "<script>alert('El correo no existe'); window.location = 'inicio_sesion.php' </script>";
         }
     }
-
 }
 
 ?>

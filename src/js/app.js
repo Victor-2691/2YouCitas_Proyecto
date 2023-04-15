@@ -133,6 +133,10 @@ function desactivarenlaces() {
 }
 
 function tabs() {
+  // $('ul.tabs li:first a:eq(1)').addClass('active');
+  // $('.secciones article').hide();
+  // $('.secciones article:first').show();
+
   $('ul.tabs li a:first').addClass('active');
   $('.secciones article').hide();
   $('.secciones article:first').show();
