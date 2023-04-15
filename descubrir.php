@@ -117,12 +117,12 @@ switch ($generobuscado) {
                 </button>
 
                 <!-- BTN NO ME GUSTA -->
-                <button onclick="btndescrubrir()" class="btn_descrubrir nomegusta" data-perfil-id="<?php echo $idCliente; ?>" data-usuario-id="<?php echo $sessionid; ?>">>
+                <button onclick="btndescrubrir()" class="btn_descrubrir nomegusta">
                 </button>
 
 
                 <!-- BTN Me gusta -->
-                <button onclick="btndescrubrir()" class="btn_descrubrir megusta">
+                <button onclick="insertalike()" class="btn_descrubrir megusta">
                 </button>
 
 
@@ -138,20 +138,8 @@ switch ($generobuscado) {
 
             </div>
 
-            <!-- Botón de "like" -->
-            <!-- form para llevar a otros links los botones -->
-            <!-- <form method="post" action="descubrir.php">
-                <button class="like-button" data-perfil-id="<?php //echo $idCliente; 
-                                                            ?>" >Like</button>
-                <button class="btn_descrubir"><i class="fa-solid fa-thumbs-up"></i> </button>
-                <button class="btn_descrubir"><i class="fa-sharp fa-solid fa-circle-xmark fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
-                <button class="btn_descrubir"><i class="fa-solid fa-thumbs-up fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
-                <button class="btn_descrubir"><i class="fa-solid fa-heart fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
-                <button class="btn_descrubir"><i class="fa-solid fa-address-card fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button>
-            </form>  -->
-
         </div>
-        <!-- <button class="" onclick="btnperfil()"><i class="fa-solid fa-address-card fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6; "></i> </button> -->
+       
     </div>
     </div>
 
@@ -181,18 +169,6 @@ switch ($generobuscado) {
         }
     </script>
 
-
-    <script type="text/javascript">
-        function btnlike() {
-            var id = document.querySelector('#id_usuario').innerText;
-            var iduser = document.querySelector('#id_userlogueado').innerText;
-            console.log(id);
-            console.log(iduser);
-            // window.location = 'guardar_like.php';
-            window.location = `guardar_like.php?id=${id}?iduser=${iduser}`;
-
-        }
-    </script>
 
 <!-- Funcion para insertar Suspiros -->
     <script>
@@ -231,6 +207,69 @@ switch ($generobuscado) {
                             position: '',
                             icon: 'success',
                             title: 'Suspiro registrado',
+                            showConfirmButton: false,
+                            timer: 2000
+                        })
+                        setInterval("location.reload()", 1000);
+
+                    }
+
+                    if (mensaje == 2) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'error!',
+
+                        })
+                        setInterval("location.reload()", 2000);
+                    }
+                },
+
+                Error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+
+            });
+        }
+    </script>
+
+    <!-- Funcion para insertar LIKES -->
+    <script>
+        function insertalike() {
+            var id = document.querySelector('#id_usuario_perfil').innerText;
+
+            var parametros = {
+                "idusuario": id
+            };
+
+            $.ajax({
+                data: parametros,
+                url: 'funcionesphp/insertalike.php',
+                type: 'POST',
+
+                beforesend: function() {
+                    $('#mostrar_mensaje').html("Mensaje antes de Enviar");
+                    console("Enviando peticion...")
+                },
+
+                success: function(mensaje) {
+
+                    if (mensaje == 0) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Ya le habias dado like a esta persona!',
+                            showConfirmButton: false,
+                        })
+                        setInterval("location.reload()", 1000);
+
+                    }
+
+                    if (mensaje == 1) {
+                        Swal.fire({
+                            position: '',
+                            icon: 'success',
+                            title: 'like registrado',
                             showConfirmButton: false,
                             timer: 2000
                         })
