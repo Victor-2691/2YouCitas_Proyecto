@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
   // btnperfil();
 });
 
@@ -185,8 +184,6 @@ function tabs() {
       document.querySelectorAll('input[type=checkbox][role^=switch]')
     ).forEach((element) => new CheckboxSwitch(element));
   }
-
-
 
 
 // function btnperfil() {

@@ -155,7 +155,7 @@ try {
                             // Perfil Completo
                             if (mensaje == 0) {
                            
-                                window.location = 'descubrir.php'
+                                window.location = 'cargargeolocalizacion.php'
                             }
                         },
 

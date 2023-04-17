@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $ejecutar = mysqli_query($db, $consulta);
                 if($ejecutar){
           
-                    echo "<script>window.location = 'descubrir.php' </script>";
+                    echo "<script>window.location = 'cargargeolocalizacion.php' </script>";
                 }
 
                 else{

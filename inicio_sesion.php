@@ -90,7 +90,7 @@ if (isset($_POST['iniciar_sesion'])) {
                     header("location: formulario1.php");
                 } else {
                     $_SESSION['nombredelusuario'] = $correo;
-                    header("location: descubrir.php");
+                    header("location: cargargeolocalizacion.php");
                 }
             }
         } elseif ($nr == 0) {
