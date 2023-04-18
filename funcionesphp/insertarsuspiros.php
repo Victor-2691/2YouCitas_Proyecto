@@ -14,7 +14,7 @@ $id_usuario_perfil = $_POST['idusuario'] ?? null;
 
 // Validar suspiro 
 $consulta = "SELECT * FROM suspiros where id_usuario_envia = $sessionid and
-id_usuario_recibe = $id_usuario_perfil AND Estado = 1 OR Estado = 4" ;
+id_usuario_recibe = $id_usuario_perfil AND Estado = 1" ;
 $ejecutar = mysqli_query($db, $consulta);
 $filasafectadas = mysqli_num_rows($ejecutar);
 
