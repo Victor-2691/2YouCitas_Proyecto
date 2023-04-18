@@ -23,10 +23,11 @@
     <div class="contenedor_footer_movil">
         <a href="descubrir.php"><img class="iconos25" src="https://img.icons8.com/ios-glyphs/30/000000/search-client.png"/></a>
 
-        <a> <img class="iconos25" src="https://img.icons8.com/ios/50/null/delivery-time--v2.png"/> </a>
+        <a href="like.php"> <img class="iconos25" src="https://img.icons8.com/ios/50/null/delivery-time--v2.png"/> </a>
 
-        <a> 
-        <img class="iconos25" src="https://img.icons8.com/windows/64/null/chat-messages--v1.png"/>
+        <a href="suspiros.php"> 
+        <img class="iconos25" src="build/img/suspiroblanco.svg"/>
+     
         </a>
 
         <a href="salir.php">

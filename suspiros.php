@@ -15,9 +15,8 @@ if (isset($_SESSION['idcliente'])) {
     <div class="contenedor_histosupiros">
         <div class="wrap">
             <ul class="tabs">
-                <li><a href="#tab1"><span class="fa fa-home"></span><span 
-                class="tab-text">Enviados</span>  </a></li>
-                <li><a href="#tab2"><span class="fa fa-group"></span><span class="tab-text">Recibidos</span></a></li>
+                <li><a href="#tab1"><span class="fa fa-home"></span><span class="tab-text">Enviados</span> </a></li>
+                <li><a href="#tab2"><span class="fa fa-group"></span><span class="tab-text"> Recibidos</span></a></li>
                 <li><a href="#tab3"><span class="fa fa-briefcase"></span><span class="tab-text">Correspondidos</span></a></li>
                 <!-- <li><a href="#tab4"><span class="fa fa-bookmark"></span><span class="tab-text">Coincidencias</span></a></li> -->
             </ul>
@@ -102,10 +101,55 @@ if (isset($_SESSION['idcliente'])) {
                 <!-- Fin suspiros Recibidos -->
 
 
-                <!-- ARTICULO YA NO ME GUSTA -->
-                <article id="tab3">
-                    <h1>Ya No Me gusta</h1>
-                    <h1>Le gusta</h1>
+                <!-- Suspiros Correspondidos-->
+                <article id="tab3" class="tab1_suspiros">
+                    <?php
+                    $consulta1 = "SELECT C.nombre, C.edad, S.fecha, IM.tipo_imagen, IM.imagen, S.id_historial  FROM suspiros S JOIN Clientes_Externos C ON S.id_usuario_recibe = C.id_cliente
+                    JOIN imagenes_clientes IM ON S.id_usuario_recibe = IM.id_cliente
+                    where id_usuario_envia = $sessionid and Estado = 4 AND IM.imagen_perfil = 1
+                    order by S.id_historial desc";
+                    $ejecutar1 = mysqli_query($db, $consulta1);
+
+                    $consulta2 = "SELECT C.nombre, C.edad, S.fecha, IM.tipo_imagen, IM.imagen, S.id_historial,S.id_usuario_envia  FROM 
+                    suspiros S JOIN Clientes_Externos C ON S.id_usuario_envia = C.id_cliente
+                    JOIN imagenes_clientes IM ON S.id_usuario_envia = IM.id_cliente
+                    where id_usuario_recibe = $sessionid and Estado = 4 AND IM.imagen_perfil = 1
+                    order by S.id_historial desc";
+                    $ejecutar2 = mysqli_query($db, $consulta2);
+                    $arreglo1 = mysqli_fetch_all($ejecutar1, MYSQLI_ASSOC);
+                    $arreglo2 = mysqli_fetch_all($ejecutar2, MYSQLI_ASSOC);
+                    $arreglofinal = array_merge($arreglo1, $arreglo2);
+                    ?>
+
+                    <?php foreach ($arreglofinal as $key => $opciones) :  ?>
+                        <div class="card_suspiros">
+                            <p hidden class="id_historial_recibidos"><?php echo $opciones['id_historial']  ?></p>
+                            <img class="img_histo_perfil" src="data:<?php echo $opciones['tipo_imagen'] ?>;base64,<?php echo base64_encode($opciones['imagen']) ?>" alt="img">
+
+                            <div class="content_suspiros">
+                                <h2> <?php echo $opciones['nombre']  ?> <span class="edad">
+                                        <?php echo $opciones['edad'] ?> Años</span> </h2>
+                                <p>Recibido: <?php echo $opciones['fecha'] ?> </p>
+                                <div class="btn_contenedor_suspiro">
+                                    <p hidden class="id_historial_recibidos"><?php echo $opciones['id_historial']  ?></p>
+                                    <h2 hidden class="nombre_recibidos"> <?php echo $opciones['nombre']  ?> </h2>
+                                    <p hidden class="id_usuario_recibido">
+                                        <?php echo $opciones['id_usuario_envia']  ?>
+                                    </p>
+                                    <!-- BTN mensaje-->
+                                    <button class="btn_hover perfil_mensaje ">
+                                    </button>
+                                
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                    <?php endforeach; ?>
+
+
+
+
+
                 </article>
                 <!-- ARTICULO COINCIDENCIAS -->
                 <article id="tab4">
